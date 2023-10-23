@@ -1,5 +1,5 @@
 import React from "react";
-import hireMe from "../assets/images/lion.png";
+import hireMe from "../assets/images/hireme3.jpg";
 const Hireme = () => {
   return (
     <section id="hireme" className="py-10 px-3 text-white">
@@ -9,7 +9,7 @@ const Hireme = () => {
         </h3>
         <p className="text-gray-400 mt-3 text-lg">Herhangi Bir İşin Var Mı?</p>
       </div>
-      <div className="bg-gray-700 relative px-8 rounded-2xl py-5 lg:max-w-4xl mx-auto min-h-[24rem] mt-24 flex gap-6 lg:flex-row flex-col-reverse items-center">
+      <div className="bg-gray-700 relative px-8 rounded-2xl py-5 lg:max-w-4xl mx-auto min-h-[24rem] mt-24 flex gap-6 lg:flex-row flex-col-reverse items-center overflow-hidden">
         <div>
           <h2 className="text-2xl font-semibold">
             Benimle Çalışmak İster Misin?
@@ -24,11 +24,13 @@ const Hireme = () => {
             <button className="btn-primary mt-10">Merhaba De! </button>
           </a>
         </div>
-        <img
-          src={hireMe}
-          alt=""
-          className="lg:h-[32rem] h-80 lg:absolute bottom-0 -right-3 object-cover"
-        />
+        <div
+          className={`overflow-hidden bg-yellow-400 rounded-3xl ${
+            window.innerWidth > 1024 ? "w-[40%]" : ""
+          }`}
+        >
+          <img src={hireMe} alt="" className={`object-center h-full`} />
+        </div>
       </div>
     </section>
   );

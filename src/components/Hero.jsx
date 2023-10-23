@@ -1,5 +1,6 @@
 import React from "react";
 import hero from "../assets/images/lion2.png";
+import hero2 from "../assets/images/lion3.png";
 import { TypeAnimation } from "react-type-animation";
 
 const Hero = () => {
@@ -30,14 +31,17 @@ const Hero = () => {
       id="home"
       className="min-h-screen flex py-10 md:flex-row flex-col items-center"
     >
-      <div className="flex-1 flex items-center justify-center h-full">
-        <img src={hero} alt="" className="md:w-11/12 h-full object-cover" />
+      <div className="flex-1 flex items-center justify-center shadow-black shadow-2xl">
+        <img
+          src={window.innerWidth < 640 ? hero : hero2}
+          alt=""
+          className="md:w-11/12 object-center"
+        />
       </div>
       <div className="flex-1">
         <div className="md:text-left text-center">
           <h1 className="md:text-5xl text-2xl md:leading-normal leading-10 text-white font-bold">
             <span className="text-cyan-600 md:text-6xl text-5xl">
-              {/* <Typed strings={["Hello!"]} typeSpeed={50} backSpeed={200} loop /> */}
               <TypeAnimation
                 sequence={["Hello!", 700, "", 700]}
                 className="text-3xl"
@@ -45,13 +49,6 @@ const Hero = () => {
               />
               <br />
             </span>
-            {/* <Typed
-              className="text-3xl"
-              strings={["I'm Muhammed Aslan"]}
-              typeSpeed={100}
-              backSpeed={100}
-              loop
-            /> */}
             <TypeAnimation
               sequence={["I'm Muhammed Aslan!", 700, "", 700]}
               className="text-3xl"

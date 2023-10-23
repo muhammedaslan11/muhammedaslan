@@ -56,7 +56,7 @@ const Project = () => {
       <div className="flex max-w-6xl gap-6 px-5 mx-auto items-center relative">
         <div className="lg:w-2/3 w-full">
           <Swiper
-          controller={true}
+            controller={true}
             slidesPerview={1.2}
             spaceBetween={20}
             breakpoints={{
