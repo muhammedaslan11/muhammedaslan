@@ -1,6 +1,5 @@
 import React from "react";
-import hero from "../assets/images/hero.png";
-import Typed from "react-typed";
+import hero from "../assets/images/lion2.png";
 
 const Hero = () => {
   const social_media = [
@@ -37,22 +36,22 @@ const Hero = () => {
         <div className="md:text-left text-center">
           <h1 className="md:text-5xl text-2xl md:leading-normal leading-10 text-white font-bold">
             <span className="text-cyan-600 md:text-6xl text-5xl">
-              <Typed strings={["Hello!"]} typeSpeed={50} backSpeed={200} loop />
+              {/* <Typed strings={["Hello!"]} typeSpeed={50} backSpeed={200} loop /> */}
               <br />
             </span>
-            <Typed
+            {/* <Typed
               className="text-3xl"
               strings={["I'm Muhammed Aslan"]}
               typeSpeed={100}
               backSpeed={100}
               loop
-            />
+            /> */}
           </h1>
           <h4 className="md:text-2xl text-lg md:leading-normal leading-5 mt-4 font-bold text-gray-600">
             Frontend Developer 👨🏻‍💻
           </h4>
           <a href="mailto:aslanmuhammed2534@gmail.com">
-          <button className="btn-primary mt-8">Contact Me</button>
+            <button className="btn-primary mt-8">Contact Me</button>
           </a>
           <div className="mt-8 text-3xl flex items-center md:justify-start justify-center gap-5">
             {social_media?.map((social, index) => (

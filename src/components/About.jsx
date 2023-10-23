@@ -1,6 +1,6 @@
 import React from "react";
 import CountUp from "react-countup";
-import aboutImg from "../assets/images/about.png";
+import aboutImg from "../assets/images/lion.png";
 const About = () => {
   const info = [
     { text: "Months experience", count: "45" },
