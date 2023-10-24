@@ -32,7 +32,7 @@ const Hireme = () => {
           <img
             src={hireMe}
             alt=""
-            className={`object-center h-full max-h-full`}
+            className={`object-center h-full max-h-[300px]`}
           />
         </div>
       </div>
