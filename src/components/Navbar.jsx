@@ -51,8 +51,17 @@ const Navbar = () => {
           }
         `}
       </style>
-      <div className="flex items-center justify-between">
-        <div className="mx-7">
+      <div className="flex items-center justify-between cursor-pointer">
+        <div
+          className="mx-7"
+          onClick={() => {
+            location.href = "/";
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+          }}
+        >
           <h4 className="text-2xl uppercase font-bold">
             {"<Mu"}
             <span className="text-cyan-600">ham</span>
