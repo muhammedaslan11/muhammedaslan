@@ -5,7 +5,7 @@ import project2 from "../assets/images/project-2.jpg";
 import project3 from "../assets/images/project-3.jpg";
 import project4 from "../assets/images/project-4.jpg";
 import project5 from "../assets/images/project-5.png";
-import project_person from "../assets/images/project_person1.png";
+import project_person from "../assets/images/projects.png";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper";
@@ -99,8 +99,13 @@ const Project = () => {
             ))}
           </Swiper>
         </div>
-        <div className="lg:block hidden">
-          <img src={project_person} alt="" />
+        <div className="lg:block hidden h-[310px] rounded-xl overflow-hidden">
+          <img
+            className="max-h-full h-full object-cover"
+            src="https://res.cloudinary.com/practicaldev/image/fetch/s--g1HuidbV--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/4a6t7pmm323uaz9rv1rf.png"
+            // src={project_person}
+            alt=""
+          />
         </div>
       </div>
     </section>

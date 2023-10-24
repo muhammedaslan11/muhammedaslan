@@ -91,16 +91,18 @@ const Navbar = () => {
         </div>
         <div
           className={`md:hidden text-gray-900 absolute w-3/4 h-screen flex flex-col gap-10
-      px-7 py-2 font-medium backdrop-blur-md  top-0 duration-300 ${open ? "left-0" : "left-[-100%]"}`}
+      px-7 py-2 font-medium backdrop-blur-md  top-0 duration-300 ${
+        open ? "left-0" : "left-[-100%]"
+      }`}
         >
           <div className="w-full mt-16 rounded-2xl text-center">
             <h4 className="text-2xl text-white uppercase font-bold">
               {"<Muhammed"}
-              <br/>
+              <br />
               {"Aslan/>"}
             </h4>
           </div>
-          <ul className="flex flex-col justify-center gap-10 text-lg">
+          <ul className="flex flex-col justify-center gap-6 text-lg">
             {menuLinks?.map((menu, i) => (
               <li
                 onClick={() => setOpen(false)}
@@ -125,7 +127,7 @@ const Navbar = () => {
           </ul>
           <p className="text-white text-center">
             &copy; {new Date().getFullYear()} All right reserved by {"   "}
-            <a href="https://www.google.com">
+            <a href="https://muhammed-aslan11.vercel.app">
               <strong>Muhammed Aslan</strong>
             </a>
           </p>

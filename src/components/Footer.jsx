@@ -4,7 +4,7 @@ import {
   IconBrandInstagram,
   IconBrandLinkedin,
   IconBrandTwitterFilled,
-  IconBrandGithub
+  IconBrandGithub,
 } from "@tabler/icons-react";
 
 const Footer = () => {
@@ -162,44 +162,59 @@ const Footer = () => {
       </div>
       <ul className="socialIcon">
         <li className="social-icon__item">
-          <a className="socialIconLink" href="#">
+          <a
+            className="socialIconLink"
+            href="https://www.instagram.com/muhammed_asln11"
+          >
             <IconBrandInstagram size="2.3rem" name="logo-instagram" />
           </a>
         </li>
         <li className="social-icon__item">
-          <a className="socialIconLink" href="#">
+          <a
+            className="socialIconLink"
+            href="https://twitter.com/Muhamme47611687"
+          >
             <IconBrandTwitterFilled size="2.3rem" name="logo-twitter" />
           </a>
         </li>
         <li className="social-icon__item">
-          <a className="socialIconLink" href="#">
+          <a
+            className="socialIconLink"
+            href="https://www.facebook.com/profile.php?id=100011409362795"
+          >
             <IconBrandFacebookFilled size="2.3rem" name="logo-facebook" />
           </a>
         </li>
         <li className="social-icon__item">
-          <a className="socialIconLink" href="#">
+          <a
+            className="socialIconLink"
+            href="https://www.linkedin.com/in/muhammed-aslan-66269025a"
+          >
             <IconBrandLinkedin size="2.3rem" name="logo-linkedin" />
           </a>
         </li>
         <li className="social-icon__item">
-          <a className="socialIconLink" href="#">
+          <a
+            className="socialIconLink"
+            href="https://github.com/muhammedaslan11"
+          >
             <IconBrandGithub size="2.3rem" name="logo-linkedin" />
           </a>
         </li>
       </ul>
       <ul className="menu">
-        {footerMenus?.map((menuItems, key)=>(
+        {footerMenus?.map((menuItems, key) => (
           <li className="menu__itemm">
-          <a className="menuLink" href={menuItems.link}>
-            {menuItems.name}
-          </a>
-        </li>
-          ))}
+            <a className="menuLink" href={menuItems.link}>
+              {menuItems.name}
+            </a>
+          </li>
+        ))}
       </ul>
       <p>
         &copy; {new Date().getFullYear()}{" "}
-        <a href="https://www.google.com">
-          <strong>AslanJR</strong>
+        <a href="https://muhammed-aslan11.vercel.app/">
+          <strong>Muhammed Aslan</strong>
         </a>{" "}
         Tüm Hakları Saklıdır.
       </p>

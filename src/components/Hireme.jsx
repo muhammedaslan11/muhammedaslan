@@ -29,7 +29,11 @@ const Hireme = () => {
             window.innerWidth > 1024 ? "w-[40%]" : ""
           }`}
         >
-          <img src={hireMe} alt="" className={`object-center h-full`} />
+          <img
+            src={hireMe}
+            alt=""
+            className={`object-center h-full max-h-full`}
+          />
         </div>
       </div>
     </section>
