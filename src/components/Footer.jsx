@@ -177,14 +177,14 @@ const Footer = () => {
             <IconBrandTwitterFilled size="2.3rem" name="logo-twitter" />
           </a>
         </li>
-        <li className="social-icon__item">
+{/*         <li className="social-icon__item">
           <a
             className="socialIconLink"
             href="https://www.facebook.com/profile.php?id=100011409362795"
           >
             <IconBrandFacebookFilled size="2.3rem" name="logo-facebook" />
           </a>
-        </li>
+        </li> */}
         <li className="social-icon__item">
           <a
             className="socialIconLink"
