@@ -20,10 +20,10 @@ const Footer = () => {
       iconName: "logo-instagram",
       hrefs: "https://www.instagram.com/muhammed_asln11",
     },
-    {
-      iconName: "logo-facebook",
-      hrefs: "https://www.facebook.com/profile.php?id=100011409362795",
-    },
+    // {
+    //   iconName: "logo-facebook",
+    //   hrefs: "https://www.facebook.com/profile.php?id=100011409362795",
+    // },
     {
       iconName: "logo-linkedin",
       hrefs: "https://www.linkedin.com/in/muhammed-aslan-66269025a",
