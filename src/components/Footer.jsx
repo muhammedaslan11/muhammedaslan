@@ -213,7 +213,7 @@ const Footer = () => {
       </ul>
       <p>
         &copy; {new Date().getFullYear()}{" "}
-        <a href="https://muhammed-aslan11.vercel.app/">
+        <a href="https://muhammedaslan.vercel.app/">
           <strong>Muhammed Aslan</strong>
         </a>{" "}
         Tüm Hakları Saklıdır.
