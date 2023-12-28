@@ -3,9 +3,9 @@ import CountUp from "react-countup";
 import aboutImg from "../assets/images/hacker.png";
 const About = () => {
   const info = [
-    { text: "Months experience", count: "45" },
-    { text: "Completed Projects", count: "34" },
-    { text: "Companies Work", count: "11" },
+    { text: "Months experience", count: "17" },
+    { text: "Completed Projects", count: "8" },
+    { text: "Companies Work", count: "1" },
   ];
   return (
     <section id="about" className="py-2 text-white">
@@ -18,10 +18,14 @@ const About = () => {
           <div className="p-2">
             <div className="text-gray-300 my-3">
               <p className="text-justify text-lg leading-7 w-11/12 mx-auto">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
-                eos, quam vel quisquam, explicabo sit labore dignissimos optio
-                ratione quibusdam doloribus pariatur consequuntur sint.
-                Reprehenderit cupiditate possimus facere quasi voluptatem?
+                HTML, CSS, JavaScript, React, Bootstrap, TailwindCSS ve
+                TypeScript gibi modern web teknolojilerinde güçlü bir bilgi
+                birikimine sahibim. Kreatif çözümler üretme konusundaki tutkum
+                ve hızla değişen teknolojik ortama ayak uydurma yeteneğimle,
+                kullanıcı dostu ve etkileyici web uygulamaları geliştirmekteyim.
+                Profesyonel gelişimime odaklı, yaratıcı ve çözüm odaklı bir
+                Frontend Geliştirici olarak sizinle çalışmayı heyecanla
+                bekliyorum.
               </p>
               <div className="flex mt-10 items-center gap-7">
                 {info.map((content) => (

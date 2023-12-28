@@ -15,10 +15,12 @@ const Hireme = () => {
             Benimle Çalışmak İster Misin?
           </h2>
           <p className="lg:text-left text-justify max-w-lg text-sm mt-4 text-gray-200 leading-6">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis dicta
-            soluta quos tempore eos accusamus cupiditate, amet in similique
-            sapiente obcaecati odio deleniti architecto corporis ratione.
-            Consequatur a quidem maiores!
+            Kullanıcı dostu arayüzlerin ardındaki gizli gücü keşfetmeye tutkulu
+            bir Frontend Geliştiriciyim. Kodun estetiği ve kullanıcı deneyiminin
+            mükemmelliği benim için sadece bir hedef değil, aynı zamanda bir
+            taahhüttür. Web dünyasında benzersiz ve etkileyici deneyimler
+            yaratmak için teknik becerilerimi ve tasarım yeteneklerimi
+            birleştirerek projelerime değer katıyorum.
           </p>
           <a href="https://wa.me/+905357631908" target="_blank">
             <button className="btn-primary mt-10">Merhaba De! </button>
