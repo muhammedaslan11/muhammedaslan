@@ -9,10 +9,10 @@ const Hero = () => {
       icon: "logo-instagram",
       href: "https://www.instagram.com/muhammed_asln11",
     },
-    {
-      icon: "logo-facebook",
-      href: "https://www.facebook.com/profile.php?id=100011409362795",
-    },
+    // {
+    //   icon: "logo-facebook",
+    //   href: "https://www.facebook.com/profile.php?id=100011409362795",
+    // },
     {
       icon: "logo-linkedin",
       href: "https://www.linkedin.com/in/muhammed-aslan-66269025a",

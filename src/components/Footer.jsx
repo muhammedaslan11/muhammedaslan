@@ -20,10 +20,10 @@ const Footer = () => {
       iconName: "logo-instagram",
       hrefs: "https://www.instagram.com/muhammed_asln11",
     },
-    {
-      iconName: "logo-facebook",
-      hrefs: "https://www.facebook.com/profile.php?id=100011409362795",
-    },
+    // {
+    //   iconName: "logo-facebook",
+    //   hrefs: "https://www.facebook.com/profile.php?id=100011409362795",
+    // },
     {
       iconName: "logo-linkedin",
       hrefs: "https://www.linkedin.com/in/muhammed-aslan-66269025a",
@@ -177,14 +177,14 @@ const Footer = () => {
             <IconBrandTwitterFilled size="2.3rem" name="logo-twitter" />
           </a>
         </li>
-        <li className="social-icon__item">
+{/*         <li className="social-icon__item">
           <a
             className="socialIconLink"
             href="https://www.facebook.com/profile.php?id=100011409362795"
           >
             <IconBrandFacebookFilled size="2.3rem" name="logo-facebook" />
           </a>
-        </li>
+        </li> */}
         <li className="social-icon__item">
           <a
             className="socialIconLink"
@@ -213,7 +213,7 @@ const Footer = () => {
       </ul>
       <p>
         &copy; {new Date().getFullYear()}{" "}
-        <a href="https://muhammed-aslan11.vercel.app/">
+        <a href="https://muhammedaslan.vercel.app/">
           <strong>Muhammed Aslan</strong>
         </a>{" "}
         Tüm Hakları Saklıdır.
