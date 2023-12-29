@@ -1,47 +1,41 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import project1 from "../assets/images/project-1.png";
-import project2 from "../assets/images/project-2.jpg";
-import project3 from "../assets/images/project-3.jpg";
-import project4 from "../assets/images/project-4.jpg";
-import project5 from "../assets/images/project-5.png";
-import project_person from "../assets/images/projects.png";
+import project1 from "../assets/images/project--1.png";
+import project2 from "../assets/images/project--2.png";
+import project3 from "../assets/images/project--3.png";
+import project4 from "../assets/images/project--4.png";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper";
 
 const Project = () => {
+  // bunları yap
+  // https://vuecountry05.netlify.app/
+  // https://myreactflix.netlify.app/
   const projects = [
     {
       img: project1,
-      name: "Movie App",
-      github_link: "https://github.com/Sridhar-C-25",
-      live_link: "https://myreactflix.netlify.app",
+      name: "Fevzi Aslan Portfolio",
+      github_link: "https://github.com/muhammedaslan11/fevziaslan",
+      live_link: "https://www.fevziaslan.com.tr/",
     },
     {
       img: project2,
-      name: "Job search Web App",
-      github_link: "https://github.com/Sridhar-C-25/jobsearchapp",
-      live_link: "https://myjobsearch.netlify.app",
+      name: "Sentiment Analyzer",
+      github_link: "https://github.com/muhammedaslan11/sentiment-analyzer",
+      live_link: "https://sentimentanalysisgl.netlify.app/",
     },
     {
       img: project3,
-      name: "Highking",
-      github_link: "https://github.com/Sridhar-C-25/highking",
-      live_link: "https://highking01.netlify.app",
+      name: "Simple Weather App",
+      github_link: "https://github.com/muhammedaslan11/weather-app",
+      live_link: "https://weather-app-bay-zeta.vercel.app/",
     },
     {
       img: project4,
-      name: "React Nav",
-      github_link:
-        "https://github.com/Sridhar-C-25/reacttailwindnavbar-with-dropdown",
-      live_link: "https://reacttailwindnavbar.netlify.app",
-    },
-    {
-      img: project5,
-      name: "Vue Country",
-      github_link: "https://github.com/Sridhar-C-25",
-      live_link: "https://vuecountry05.netlify.app",
+      name: "Software Work Document",
+      github_link: "https://github.com/muhammedaslan11/work-document",
+      live_link: "https://work-document.vercel.app/",
     },
   ];
   return (

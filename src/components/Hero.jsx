@@ -1,6 +1,7 @@
 import React from "react";
 import hero from "../assets/images/lion2.png";
 import hero2 from "../assets/images/lion3.png";
+import darkBanner from "../assets/images/dark-banner.png";
 import { TypeAnimation } from "react-type-animation";
 
 const Hero = () => {
@@ -33,7 +34,8 @@ const Hero = () => {
     >
       <div className="flex-1 flex items-center justify-center shadow-black shadow-2xl">
         <img
-          src={window.innerWidth < 640 ? hero : hero2}
+          // src={window.innerWidth < 640 ? hero : hero2}
+          src={darkBanner}
           alt=""
           className="md:w-11/12 object-center"
         />

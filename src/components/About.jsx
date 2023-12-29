@@ -1,6 +1,6 @@
 import React from "react";
 import CountUp from "react-countup";
-import aboutImg from "../assets/images/hacker.png";
+import aboutImg from "../assets/images/about-image.png";
 const About = () => {
   const info = [
     { text: "Months experience", count: "17" },
@@ -17,7 +17,7 @@ const About = () => {
         <div className="flex md:flex-row flex-col-reverse items-center md:gap-6 gap-12 px-10 max-w-6xl mx-auto">
           <div className="p-2">
             <div className="text-gray-300 my-3">
-              <p className="text-justify text-lg leading-7 w-11/12 mx-auto">
+              <p className="text-left text-lg leading-7 w-11/12 mx-auto">
                 HTML, CSS, JavaScript, React, Bootstrap, TailwindCSS ve
                 TypeScript gibi modern web teknolojilerinde güçlü bir bilgi
                 birikimine sahibim. Kreatif çözümler üretme konusundaki tutkum
@@ -43,7 +43,7 @@ const About = () => {
               <br />
               <br />
               <a
-                href="./src/assets/Muhammed-Aslan.pdf"
+                href="./src/assets/Muhammed-Aslan-English.pdf"
                 className="float-left bg-sky-600 p-3 rounded-3xl"
                 download
               >
