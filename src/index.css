@@ -33,3 +33,6 @@ textarea {
 ::selection {
   @apply bg-cyan-600;
 }
+.wave {
+  background-image: url(./assets/images/wavebg.png);
+}

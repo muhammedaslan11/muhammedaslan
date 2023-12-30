@@ -103,7 +103,7 @@ const Footer = () => {
           left: 0;
           width: 100%;
           height: 100px;
-          background-image: url("src/assets/images/wave.png");
+          // background-image: url("src/assets/images/wavebg.png");
           background-size: 1000px 100px;
         }
 
