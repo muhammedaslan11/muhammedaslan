@@ -44,10 +44,11 @@ const About = () => {
               <br />
               <a
                 href="./src/assets/Muhammed-Aslan-CV.pdf"
+                target="_blank"
                 className="float-left bg-sky-600 p-3 rounded-3xl"
-                download
+                // download
               >
-                <span style={{ color: "white" }}>CV İndir</span>
+                <span style={{ color: "white" }}>CV Görüntüle</span>
               </a>
             </div>
           </div>
