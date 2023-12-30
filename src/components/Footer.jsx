@@ -213,7 +213,7 @@ const Footer = () => {
       </ul>
       <p>
         &copy; {new Date().getFullYear()}{" "}
-        <a href="https://muhammedaslan.com.tr/">
+        <a href="https://www.muhammedaslan.com.tr/">
           <strong>Muhammed Aslan</strong>
         </a>{" "}
         Tüm Hakları Saklıdır.
