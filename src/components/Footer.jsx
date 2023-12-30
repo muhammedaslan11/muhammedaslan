@@ -177,7 +177,7 @@ const Footer = () => {
             <IconBrandTwitterFilled size="2.3rem" name="logo-twitter" />
           </a>
         </li>
-{/*         <li className="social-icon__item">
+        {/*         <li className="social-icon__item">
           <a
             className="socialIconLink"
             href="https://www.facebook.com/profile.php?id=100011409362795"
@@ -213,7 +213,7 @@ const Footer = () => {
       </ul>
       <p>
         &copy; {new Date().getFullYear()}{" "}
-        <a href="https://muhammedaslan.vercel.app/">
+        <a href="https://muhammedaslan.com.tr/">
           <strong>Muhammed Aslan</strong>
         </a>{" "}
         Tüm Hakları Saklıdır.

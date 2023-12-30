@@ -136,7 +136,7 @@ const Navbar = () => {
           </ul>
           <p className="text-white text-center">
             &copy; {new Date().getFullYear()} All right reserved by {"   "}
-            <a href="https://muhammed-aslan11.vercel.app">
+            <a href="https://muhammed-aslan11.com.tr">
               <strong>Muhammed Aslan</strong>
             </a>
           </p>
