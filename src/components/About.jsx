@@ -43,7 +43,7 @@ const About = () => {
               <br />
               <br />
               <a
-                href="./src/assets/Muhammed-Aslan-English.pdf"
+                href="./src/assets/Muhammed-Aslan-CV.pdf"
                 className="float-left bg-sky-600 p-3 rounded-3xl"
                 download
               >
