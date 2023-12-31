@@ -43,7 +43,8 @@ const About = () => {
               <br />
               <br />
               <a
-                href="./src/assets/Muhammed-Aslan-CV.pdf"
+                href="https://drive.google.com/file/d/1WxWfnnlEUzidV_AEQiobXGdSxldcIOu7/view?usp=drive_link"
+                // href="./src/assets/Muhammed-Aslan-CV.pdf"
                 type="application/pdf"
                 className="float-left bg-sky-600 p-3 rounded-3xl"
                 download
