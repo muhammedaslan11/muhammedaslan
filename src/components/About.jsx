@@ -44,13 +44,19 @@ const About = () => {
               <br />
               <a
                 href="https://drive.google.com/file/d/1WxWfnnlEUzidV_AEQiobXGdSxldcIOu7/view?usp=drive_link"
-                // href="./src/assets/Muhammed-Aslan-CV.pdf"
+                target="_blank"
+                className="float-left bg-sky-600 p-3 rounded-3xl"
+              >
+                <span style={{ color: "white" }}>CV Görüntüle</span>
+              </a>
+              {/* <a
+                href="./src/assets/Muhammed-Aslan-CV.pdf"
                 type="application/pdf"
                 className="float-left bg-sky-600 p-3 rounded-3xl"
                 download
               >
                 <span style={{ color: "white" }}>CV İndir</span>
-              </a>
+              </a> */}
             </div>
           </div>
           <div className="flex-1 md:mt-0 mt-6 flex justify-center items-center">
