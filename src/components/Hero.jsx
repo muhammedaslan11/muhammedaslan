@@ -58,9 +58,6 @@ const Hero = () => {
             />
           </h1>
           <h4 className="md:text-2xl text-lg md:leading-normal leading-5 mt-4 font-bold text-gray-600">
-            {t("test")}
-          </h4>
-          <h4 className="md:text-2xl text-lg md:leading-normal leading-5 mt-4 font-bold text-gray-600">
             Frontend Developer 👨🏻‍💻
           </h4>
           <a href="mailto:aslanmuhammed2534@gmail.com">

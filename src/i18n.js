@@ -1,22 +1,24 @@
 import i18n from "i18next";
-import { Translation, initReactI18next } from "react-i18next";
-import Backend from "i18next-http-backend";
+import { initReactI18next } from "react-i18next";
+import _en from "../public/locales/en/translation.json";
+import _tr from "../public/locales/tr/translation.json";
 
-// const resources = {
-//   tr: {
-//     translation: {
-//       welcome: "Hoşgeldin Ulan!",
-//     },
-//   },
-//   en: {
-//     translation: {
-//       welcome: "Welcome Ulan!",
-//     },
-//   },
-// };
+const resources = {
+  en: {
+    translation: _en,
+  },
+  tr: {
+    translation: _tr,
+  },
+};
 
-i18n.use(initReactI18next).use(Backend).init({
+i18n.use(initReactI18next).init({
+  resources,
   lng: "en",
+
+  interpolation: {
+    escapeValue: false,
+  },
 });
 
 export default i18n;
