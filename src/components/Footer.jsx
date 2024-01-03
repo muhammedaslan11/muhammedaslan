@@ -6,8 +6,10 @@ import {
   IconBrandTwitterFilled,
   IconBrandGithub,
 } from "@tabler/icons-react";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t, i18n } = useTranslation();
   const footerMenus = [
     { name: "Anasayfa", link: "#home" },
     { name: "Hakkında", link: "#about" },

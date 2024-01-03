@@ -1,7 +1,10 @@
 import React from "react";
 import CountUp from "react-countup";
 import aboutImg from "../assets/images/about-image.png";
+import { useTranslation } from "react-i18next";
+
 const About = () => {
+  const { t, i18n } = useTranslation();
   const info = [
     { text: "Months experience", count: "17" },
     { text: "Completed Projects", count: "8" },

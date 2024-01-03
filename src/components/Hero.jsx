@@ -1,10 +1,10 @@
 import React from "react";
-import hero from "../assets/images/lion2.png";
-import hero2 from "../assets/images/lion3.png";
+import { useTranslation } from "react-i18next";
 import darkBanner from "../assets/images/dark-banner.png";
 import { TypeAnimation } from "react-type-animation";
 
 const Hero = () => {
+  const { t, i18n } = useTranslation();
   const social_media = [
     {
       icon: "logo-instagram",
@@ -57,6 +57,9 @@ const Hero = () => {
               repeat={Infinity}
             />
           </h1>
+          <h4 className="md:text-2xl text-lg md:leading-normal leading-5 mt-4 font-bold text-gray-600">
+            {t("test")}
+          </h4>
           <h4 className="md:text-2xl text-lg md:leading-normal leading-5 mt-4 font-bold text-gray-600">
             Frontend Developer 👨🏻‍💻
           </h4>

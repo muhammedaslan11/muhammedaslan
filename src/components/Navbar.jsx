@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
   const [sticky, setSticky] = useState(false);
   const [open, setOpen] = useState(false);
+  const { t, i18n } = useTranslation();
+
   const menuLinks = [
-    { name: "ANASAYFA", link: "#home", icon: "home-outline" },
-    { name: "HAKKINDA", link: "#about", icon: "information-circle-outline" },
+    { name: t("homepage"), link: "#home", icon: "home-outline" },
+    { name: t("about"), link: "#about", icon: "information-circle-outline" },
     { name: "YETENEK", link: "#skills", icon: "trophy-outline" },
     { name: "PROJELER", link: "#projects", icon: "code-slash-outline" },
     { name: "İLETİŞİM", link: "#contact", icon: "call-outline" },

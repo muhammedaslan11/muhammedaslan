@@ -1,6 +1,9 @@
 import React from "react";
 import hireMe from "../assets/images/hireme3.jpg";
+import { useTranslation } from "react-i18next";
+
 const Hireme = () => {
+  const { t, i18n } = useTranslation();
   return (
     <section id="hireme" className="py-10 px-3 text-white">
       <div className="text-center">

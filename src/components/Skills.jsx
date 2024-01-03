@@ -1,6 +1,8 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const Skills = () => {
+  const { t, i18n } = useTranslation();
   const skills = [
     {
       logo: "logo-html5",

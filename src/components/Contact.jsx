@@ -1,6 +1,8 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const Contact = () => {
+  const { t, i18n } = useTranslation();
   const contact_info = [
     { logo: "mail", text: "aslanmuhammed2534@gmail.com" },
     { logo: "logo-whatsapp", text: "(+90) 535 763 19 08" },
@@ -13,7 +15,7 @@ const Contact = () => {
     <section id="contact" className="py-10 px-3 text-white">
       <div className="text-center mt-8">
         <h3 className="text-4xl font-semibold">
-        İletişime <span className="text-cyan-600">Geç</span>
+          İletişime <span className="text-cyan-600">Geç</span>
         </h3>
         <p className="text-gray-400 mt-3 text-lg">Temasa Geç</p>
 

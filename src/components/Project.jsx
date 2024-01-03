@@ -7,8 +7,10 @@ import project4 from "../assets/images/project--4.png";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper";
+import { useTranslation } from "react-i18next";
 
 const Project = () => {
+  const { t, i18n } = useTranslation();
   // bunları yap
   // https://vuecountry05.netlify.app/
   // https://myreactflix.netlify.app/
