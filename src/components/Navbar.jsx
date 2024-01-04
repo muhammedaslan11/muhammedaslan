@@ -9,9 +9,9 @@ const Navbar = () => {
   const menuLinks = [
     { name: t("homepage"), link: "#home", icon: "home-outline" },
     { name: t("about"), link: "#about", icon: "information-circle-outline" },
-    { name: "YETENEK", link: "#skills", icon: "trophy-outline" },
-    { name: "PROJELER", link: "#projects", icon: "code-slash-outline" },
-    { name: "İLETİŞİM", link: "#contact", icon: "call-outline" },
+    { name: t("skill"), link: "#skills", icon: "trophy-outline" },
+    { name: t("projects"), link: "#projects", icon: "code-slash-outline" },
+    // { name: t("contacts"), link: "#contact", icon: "call-outline" },
   ];
   const socialMediaİcons = [
     {
@@ -47,6 +47,13 @@ const Navbar = () => {
         sticky ? "bg-white/60  text-gray-900" : "text-white"
       }`}
     >
+      {/* <button
+        onClick={() =>
+          i18n.changeLanguage(i18n.language === "tr" ? "en" : "tr")
+        }
+      >
+        dili Değiştir: {i18n.language}
+      </button> */}
       <style jsx>
         {`
           ion-icon {
@@ -128,6 +135,7 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
+
           <ul className="flex justify-around">
             {socialMediaİcons?.map((icon, i) => (
               <li>

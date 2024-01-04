@@ -27,6 +27,27 @@ const Hero = () => {
       href: "https://github.com/muhammedaslan11",
     },
   ];
+  const Typer = ({ language }) => {
+    let TyperText =
+      language === "en" ? "I'm Muhammed Aslan" : "Ben Muhammed Aslan";
+    return (
+      <TypeAnimation
+        className="text-3xl"
+        sequence={[TyperText, 700, "", 700]}
+        repeat={Infinity}
+      />
+    );
+  };
+  const SayHi = ({ language }) => {
+    let TyperText = language === "en" ? "Hello!" : "Merhaba!";
+    return (
+      <TypeAnimation
+        sequence={[TyperText, 700, "", 700]}
+        className="text-3xl"
+        repeat={Infinity}
+      />
+    );
+  };
   return (
     <section
       id="home"
@@ -44,24 +65,16 @@ const Hero = () => {
         <div className="md:text-left text-center">
           <h1 className="md:text-5xl text-2xl md:leading-normal leading-10 text-white font-bold">
             <span className="text-cyan-600 md:text-6xl text-5xl">
-              <TypeAnimation
-                sequence={["Hello!", 700, "", 700]}
-                className="text-3xl"
-                repeat={Infinity}
-              />
+              <SayHi language={i18n.language} />
               <br />
             </span>
-            <TypeAnimation
-              sequence={["I'm Muhammed Aslan!", 700, "", 700]}
-              className="text-3xl"
-              repeat={Infinity}
-            />
+            <Typer language={i18n.language} />
           </h1>
           <h4 className="md:text-2xl text-lg md:leading-normal leading-5 mt-4 font-bold text-gray-600">
             Frontend Developer 👨🏻‍💻
           </h4>
           <a href="mailto:aslanmuhammed2534@gmail.com">
-            <button className="btn-primary mt-8">Contact Me</button>
+            <button className="btn-primary mt-8">{t("getContact")}</button>
           </a>
           <div className="mt-8 text-3xl flex items-center md:justify-start justify-center gap-5">
             {social_media?.map((social, index) => (

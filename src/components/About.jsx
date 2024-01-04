@@ -6,29 +6,20 @@ import { useTranslation } from "react-i18next";
 const About = () => {
   const { t, i18n } = useTranslation();
   const info = [
-    { text: "Months experience", count: "17" },
-    { text: "Completed Projects", count: "8" },
-    { text: "Companies Work", count: "1" },
+    { text: t("monthExperience"), count: "17" },
+    { text: t("completedProjects"), count: "8" },
+    { text: t("companiesWork"), count: "1" },
   ];
   return (
     <section id="about" className="py-2 text-white">
       <div className="text-center mt-8">
-        <h3 className="text-4xl font-semibold">
-          Benim <span className="text-cyan-600">Hakkımda</span>
-        </h3>
-        <p className="text-gray-400 my-1 text-lg">Tanıtım</p>
+        <h3 className="text-4xl font-semibold text-cyan-600">{t("aboutMe")}</h3>
+        <p className="my-1 text-gray-400 text-lg">{t("explanation")}</p>
         <div className="flex md:flex-row flex-col-reverse items-center md:gap-6 gap-12 px-10 max-w-6xl mx-auto">
           <div className="p-2">
             <div className="text-gray-300 my-3">
               <p className="text-left text-lg leading-7 w-11/12 mx-auto">
-                HTML, CSS, JavaScript, React, Bootstrap, TailwindCSS ve
-                TypeScript gibi modern web teknolojilerinde güçlü bir bilgi
-                birikimine sahibim. Kreatif çözümler üretme konusundaki tutkum
-                ve hızla değişen teknolojik ortama ayak uydurma yeteneğimle,
-                kullanıcı dostu ve etkileyici web uygulamaları geliştirmekteyim.
-                Profesyonel gelişimime odaklı, yaratıcı ve çözüm odaklı bir
-                Frontend Geliştirici olarak sizinle çalışmayı heyecanla
-                bekliyorum.
+                {t("explanationDesc")}
               </p>
               <div className="flex mt-10 items-center gap-7">
                 {info.map((content) => (
@@ -46,11 +37,12 @@ const About = () => {
               <br />
               <br />
               <a
-                href="https://drive.google.com/file/d/1WxWfnnlEUzidV_AEQiobXGdSxldcIOu7/view?usp=drive_link"
+                // href="https://drive.google.com/file/d/1WxWfnnlEUzidV_AEQiobXGdSxldcIOu7/view?usp=drive_link"
+                href="https://www.muhammedaslan.com.tr/Muhammed-Aslan-CV.pdf"
                 target="_blank"
                 className="float-left bg-sky-600 p-3 rounded-3xl"
               >
-                <span style={{ color: "white" }}>CV Görüntüle</span>
+                <span style={{ color: "white" }}>{t("viewCv")}</span>
               </a>
               {/* <a
                 href="./src/assets/Muhammed-Aslan-CV.pdf"

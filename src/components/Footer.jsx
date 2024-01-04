@@ -11,11 +11,11 @@ import { useTranslation } from "react-i18next";
 const Footer = () => {
   const { t, i18n } = useTranslation();
   const footerMenus = [
-    { name: "Anasayfa", link: "#home" },
-    { name: "Hakkında", link: "#about" },
-    { name: "Yetenek", link: "#skills" },
-    { name: "Projeler", link: "#projects" },
-    { name: "İletişim", link: "#contact" },
+    { name: t("homepage"), link: "#home" },
+    { name: t("about"), link: "#about" },
+    { name: t("skill"), link: "#skills" },
+    { name: t("projects"), link: "#projects" },
+    // { name: t("contacts"), link: "#contact" },
   ];
   const socialMediaİcons = [
     {
@@ -218,7 +218,7 @@ const Footer = () => {
         <a href="https://www.muhammedaslan.com.tr/">
           <strong>Muhammed Aslan</strong>
         </a>{" "}
-        Tüm Hakları Saklıdır.
+        {t("copyright")}
       </p>
     </section>
   );
