@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
@@ -8,12 +8,17 @@ import Hireme from "./components/Hireme";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Bot from "./components/Bot";
+import LanguageChangeModal from "./components/LanguageChangeModal";
 import "./i18n";
 
 const App = () => {
+  const [LangModalOpen, setLangModalOpen] = useState(true);
   return (
     <div>
-      <Navbar />
+      <Navbar
+        LangModalOpen={LangModalOpen}
+        setLangModalOpen={setLangModalOpen}
+      />
       <Bot />
       <Hero />
       <About />
@@ -21,7 +26,16 @@ const App = () => {
       <Hireme />
       <Project />
       {/* <Contact /> */}
-      <Footer />
+      <Footer
+        LangModalOpen={LangModalOpen}
+        setLangModalOpen={setLangModalOpen}
+      />
+      {LangModalOpen && (
+        <LanguageChangeModal
+          LangModalOpen={LangModalOpen}
+          setLangModalOpen={setLangModalOpen}
+        />
+      )}
     </div>
   );
 };

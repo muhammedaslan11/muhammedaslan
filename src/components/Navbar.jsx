@@ -47,13 +47,6 @@ const Navbar = () => {
         sticky ? "bg-white/60  text-gray-900" : "text-white"
       }`}
     >
-      {/* <button
-        onClick={() =>
-          i18n.changeLanguage(i18n.language === "tr" ? "en" : "tr")
-        }
-      >
-        dili Değiştir: {i18n.language}
-      </button> */}
       <style jsx>
         {`
           ion-icon {
@@ -151,6 +144,23 @@ const Navbar = () => {
               <strong>Muhammed Aslan</strong>
             </a>
           </p>
+          <button
+            className="language-btn text-white flex justify-center items-center gap-4 text-3xl"
+            onClick={() => {
+              i18n.changeLanguage(i18n.language === "tr" ? "en" : "tr");
+            }}
+          >
+            <ion-icon size="large" name="language-outline"></ion-icon>
+            <div
+              className="flex items-center justify-center uppercase"
+              onClick={() => {
+                setModalOpen(!modalOpen);
+              }}
+            >
+              <img className="w-14" src={t("flag")} />
+              <b>{i18n.language === "tr" ? "Turkish" : "English"}</b>
+            </div>
+          </button>
         </div>
       </div>
     </nav>

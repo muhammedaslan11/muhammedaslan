@@ -8,7 +8,7 @@ import {
 } from "@tabler/icons-react";
 import { useTranslation } from "react-i18next";
 
-const Footer = () => {
+const Footer = ({ LangModalOpen, setLangModalOpen }) => {
   const { t, i18n } = useTranslation();
   const footerMenus = [
     { name: t("homepage"), link: "#home" },
@@ -64,7 +64,6 @@ const Footer = () => {
           align-items: center;
           margin: 10px 0;
           flex-wrap: wrap;
-          padding-top: 20px;
         }
 
         .socialIconLink {
@@ -162,6 +161,22 @@ const Footer = () => {
         <div className="wave" id="wave3"></div>
         <div className="wave" id="wave4"></div>
       </div>
+      <button
+        className="language-btn"
+        onClick={() => {
+          setLangModalOpen(!LangModalOpen);
+        }}
+      >
+        <div
+          className="flex items-center justify-center uppercase cursor-pointer mt-4"
+          onClick={() => {
+            setModalOpen(!modalOpen);
+          }}
+        >
+          <img className="w-10" src={t("flag")} />
+          <b>{i18n.language === "tr" ? "Turkish" : "English"}</b>
+        </div>
+      </button>
       <ul className="socialIcon">
         <li className="social-icon__item">
           <a
