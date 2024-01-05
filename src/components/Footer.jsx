@@ -221,7 +221,7 @@ const Footer = ({ LangModalOpen, setLangModalOpen }) => {
       </ul>
       <ul className="menu">
         {footerMenus?.map((menuItems, key) => (
-          <li className="menu__itemm">
+          <li key={key} className="menu__itemm">
             <a className="menuLink" href={menuItems.link}>
               {menuItems.name}
             </a>

@@ -13,6 +13,7 @@ const Navbar = () => {
     { name: t("projects"), link: "#projects", icon: "code-slash-outline" },
     // { name: t("contacts"), link: "#contact", icon: "call-outline" },
   ];
+
   const socialMediaİcons = [
     {
       iconName: "logo-instagram",
@@ -35,12 +36,30 @@ const Navbar = () => {
       hrefs: "https://github.com/muhammedaslan11",
     },
   ];
+
+  const isOutsideMenu = (e) => {
+    if (open && e.target.closest(".menu-parent") === null) {
+      setOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      isOutsideMenu(e);
+    };
+    window.addEventListener("click", handleOutsideClick);
+    return () => {
+      window.removeEventListener("click", handleOutsideClick);
+    };
+  }, [open]);
+
   useEffect(() => {
     window.addEventListener("scroll", () => {
       const nav = document.querySelector("nav");
       window.scrollY > 0 ? setSticky(true) : setSticky(false);
     });
   }, []);
+
   return (
     <nav
       className={`fixed w-full left-0 top-0 z-[999] ${
@@ -58,7 +77,7 @@ const Navbar = () => {
         <div
           className="mx-7"
           onClick={() => {
-            location.href = "/";
+            window.location.href = "/";
             window.scrollTo({
               top: 0,
               behavior: "smooth",
@@ -102,10 +121,10 @@ const Navbar = () => {
           )}
         </div>
         <div
-          className={`md:hidden text-gray-900 absolute w-3/4 h-screen flex flex-col gap-10
-      px-7 py-2 font-medium backdrop-blur-md  top-0 duration-300 ${
-        open ? "left-0" : "left-[-100%]"
-      }`}
+          className={`menu-parent md:hidden text-gray-900 absolute w-3/4 h-screen flex flex-col gap-10
+          px-7 py-2 font-medium backdrop-blur-md  top-0 duration-300 ${
+            open ? "left-0" : "left-[-100%]"
+          }`}
         >
           <div className="w-full mt-16 rounded-2xl text-center">
             <h4 className="text-2xl text-white uppercase font-bold">
@@ -131,7 +150,7 @@ const Navbar = () => {
 
           <ul className="flex justify-around">
             {socialMediaİcons?.map((icon, i) => (
-              <li>
+              <li key={i}>
                 <a target="_blank" rel="noreferrer" href={icon?.hrefs}>
                   <ion-icon size="large" name={icon?.iconName} />
                 </a>
@@ -154,11 +173,11 @@ const Navbar = () => {
             <div
               className="flex items-center justify-center uppercase"
               onClick={() => {
-                setModalOpen(!modalOpen);
-                setOpen(false);
+                // setOpen(false);
               }}
             >
-              <img className="w-14" src={t("flag")} />
+              {/* Burada t("flag") fonksiyonunun işlevini yerine getirmesi gerekiyor */}
+              <img className="w-14" src={t("flag")} alt="Language Flag" />
               <b>{i18n.language === "tr" ? "Turkish" : "English"}</b>
             </div>
           </button>
