@@ -36,6 +36,15 @@ const Navbar = () => {
       hrefs: "https://github.com/muhammedaslan11",
     },
   ];
+  useEffect(() => {
+    const bodyOverflow = () => {
+      document.body.style.overflow = open ? "hidden" : "auto";
+    };
+    bodyOverflow();
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [open]);
 
   const isOutsideMenu = (e) => {
     if (open && e.target.closest(".menu-parent") === null) {
