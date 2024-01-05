@@ -155,6 +155,7 @@ const Navbar = () => {
               className="flex items-center justify-center uppercase"
               onClick={() => {
                 setModalOpen(!modalOpen);
+                setOpen(false);
               }}
             >
               <img className="w-14" src={t("flag")} />

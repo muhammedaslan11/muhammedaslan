@@ -20,11 +20,21 @@ const LanguageChangeModal = ({ LangModalOpen, setLangModalOpen }) => {
     }
   };
   return (
-    <div className="language-modal-parent bg-gray-800">
-      <div className="language-modal">
+    <div
+      className="language-modal-parent bg-gray-800 fixed top-0 left-0 z-[999] 
+    flex justify-center items-center w-full h-full bg-transparent text-center"
+    >
+      <div
+        className="language-modal flex flex-col p-4 bg-blue-600
+         rounded-lg max-w-xs z-[99] before:content-['']
+       before:bg-black before:z-[-1] before:top-0 before:left-0 before:w-screen 
+         before:h-screen before:absolute before:opacity-60 before:transition-all"
+      >
         <div className="text-base">Which Language Do You Prefer?</div>
         <div className="text-base">Hangi Dili Tercih Edersiniz?</div>
         <button
+          className="font-extrabold uppercase cursor-pointer flex justify-center items-center text-[21px] 
+          gap-4 hover:scale-[1.1] hover:bg-zinc-500	 hover:transition-all"
           onClick={() => {
             i18n.changeLanguage("tr");
             setLangModalOpen(!LangModalOpen);
@@ -32,18 +42,26 @@ const LanguageChangeModal = ({ LangModalOpen, setLangModalOpen }) => {
         >
           {" "}
           <div>
-            <img src="https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/TR.svg" />
+            <img
+              className="w-14 inline"
+              src="https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/TR.svg"
+            />
           </div>
           Turkish
         </button>
         <button
+          className="font-extrabold uppercase cursor-pointer flex justify-center items-center text-[21px] 
+          gap-4 hover:scale-[1.1] hover:bg-zinc-500	 hover:transition-all"
           onClick={() => {
             i18n.changeLanguage("en");
             setLangModalOpen(!LangModalOpen);
           }}
         >
           <div>
-            <img src="https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/GB.svg" />
+            <img
+              className="w-14 inline"
+              src="https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/GB.svg"
+            />
           </div>
           English
         </button>

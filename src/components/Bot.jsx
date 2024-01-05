@@ -1,6 +1,6 @@
 import React from "react";
 
-const Bot = () => {
+const Bot = ({ LangModalOpen, setLangModalOpen }) => {
   return (
     <>
       <a
@@ -13,6 +13,12 @@ const Bot = () => {
         <ion-icon name="logo-whatsapp"></ion-icon>
       </a>
       <div
+        onClick={() => setLangModalOpen(!LangModalOpen)}
+        className="fixed bottom-24 sm:right-8 right-4 z-[998] cursor-pointer text-white text-4xl bg-blue-600 p-2 flex items-center justify-center rounded-full animate-bounce"
+      >
+        <ion-icon size="large" name="language-outline"></ion-icon>
+      </div>
+      {/* <div
         onClick={() => {
           window.scrollTo({
             top: 0,
@@ -22,7 +28,7 @@ const Bot = () => {
         className="fixed bottom-24 sm:right-8 right-4 z-[998] cursor-pointer text-white text-4xl bg-cyan-600 p-2 flex items-center justify-center rounded-full animate-bounce"
       >
         <ion-icon name="arrow-up-outline"></ion-icon>
-      </div>
+      </div> */}
     </>
   );
 };

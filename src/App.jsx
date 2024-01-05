@@ -19,7 +19,7 @@ const App = () => {
         LangModalOpen={LangModalOpen}
         setLangModalOpen={setLangModalOpen}
       />
-      <Bot />
+      <Bot LangModalOpen={LangModalOpen} setLangModalOpen={setLangModalOpen} />
       <Hero />
       <About />
       <Skills />
