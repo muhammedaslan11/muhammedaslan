@@ -12,7 +12,7 @@ import LanguageChangeModal from "./components/LanguageChangeModal";
 import "./i18n";
 
 const App = () => {
-  const [LangModalOpen, setLangModalOpen] = useState(true);
+  const [LangModalOpen, setLangModalOpen] = useState(false);
   return (
     <div>
       <Navbar
