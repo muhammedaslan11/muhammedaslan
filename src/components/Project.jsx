@@ -17,12 +17,6 @@ const Project = () => {
   // https://myreactflix.netlify.app/
   const projects = [
     {
-      img: project5,
-      name: "Fake Store Api",
-      github_link: "https://github.com/muhammedaslan11/fake-store-api",
-      live_link: "https://fake-store-api-nu.vercel.app",
-    },
-    {
       img: project1,
       name: "Fevzi Aslan Portfolio",
       github_link: "https://github.com/muhammedaslan11/fevziaslan",
@@ -45,6 +39,12 @@ const Project = () => {
       name: "Software Work Document",
       github_link: "https://github.com/muhammedaslan11/work-document",
       live_link: "https://work-document.vercel.app/",
+    },
+    {
+      img: project5,
+      name: "Fake Store Api",
+      github_link: "https://github.com/muhammedaslan11/fake-store-api",
+      live_link: "https://fake-store-api-nu.vercel.app",
     },
   ];
   return (
