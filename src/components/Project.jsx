@@ -4,6 +4,7 @@ import project1 from "../assets/images/project--1.png";
 import project2 from "../assets/images/project--2.png";
 import project3 from "../assets/images/project--3.png";
 import project4 from "../assets/images/project--4.png";
+import project5 from "../assets/images/project--5.png";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper";
@@ -15,6 +16,12 @@ const Project = () => {
   // https://vuecountry05.netlify.app/
   // https://myreactflix.netlify.app/
   const projects = [
+    {
+      img: project5,
+      name: "Fake Store Api",
+      github_link: "https://github.com/muhammedaslan11/fake-store-api",
+      live_link: "https://fake-store-api-nu.vercel.app",
+    },
     {
       img: project1,
       name: "Fevzi Aslan Portfolio",
@@ -70,7 +77,7 @@ const Project = () => {
             {projects.map((project_info, i) => (
               <SwiperSlide key={i}>
                 <div className="h-fit w-full p-4 bg-slate-700 rounded-xl">
-                  <img src={project_info.img} alt="" className="rounded-lg" />
+                  <img src={project_info.img} alt="" className="rounded-lg min-h-[290px]" />
                   <h3 className="text-xl my-4">{project_info.name}</h3>
                   <div className="flex gap-3">
                     <a
