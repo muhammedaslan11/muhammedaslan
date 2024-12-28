@@ -50,7 +50,7 @@ const App = () => {
     useEffect(() => {
       const overflowStyle = isMenuOpen ? "hidden" : "unset";
       document.body.style.overflow = overflowStyle;
-    
+
       return () => {
         document.body.style.overflow = "unset";
       };
@@ -251,8 +251,8 @@ const App = () => {
 
   const Loader = () => {
     return (
-      <Container className="flex justify-center items-center h-screen">
-        <div className="loader" />
+      <Container className="flex justify-center items-center w-screen h-screen">
+        <div className="loader w-fit text-2xl md:text-[40px] font-bold uppercase text-[#0000]" />
       </Container>
     );
   }
