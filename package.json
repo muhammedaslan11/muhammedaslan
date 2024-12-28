@@ -7,23 +7,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tabler/icons-react": "^2.39.0",
-    "caniuse-lite": "^1.0.30001517",
-    "express": "^4.18.2",
-    "i18next": "^23.7.11",
-    "i18next-browser-languagedetector": "^7.2.0",
-    "nodemailer": "^6.9.4",
+    "caniuse-lite": "^1.0.30001690",
+    "clsx": "^2.1.1",
+    "pocketbase": "^0.24.0",
     "react": "^17.0.2",
-    "react-awesome-button": "^6.5.1",
-    "react-countup": "^6.4.2",
     "react-dom": "^17.0.2",
-    "react-i18next": "^14.0.0",
-    "react-icons": "^4.10.1",
-    "react-loader-spinner": "^5.1.2",
+    "react-icons": "^5.4.0",
     "react-router-dom": "^6.2.1",
     "react-type-animation": "^3.2.0",
-    "swiper": "^8.3.2",
-    "tabler-icons-react": "^1.56.0"
+    "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.7",

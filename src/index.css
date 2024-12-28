@@ -1,38 +1,51 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html {
-  @apply font-Poppins scroll-smooth;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
 body {
-  @apply box-border bg-black text-gray-100;
-  background-color: #000000;
-}
-.btn-primary {
-  @apply bg-cyan-600 font-semibold text-white md:mx-0 mx-auto rounded-full py-3 px-6 flex items-center gap-2;
-}
-
-/* .aboutImg::after {
-  @apply content-[''] w-full left-0 top-0 rounded-xl rotate-12 h-full absolute bg-gray-600 -z-10;
-} */
-
-.swiper-pagination-bullet {
-  @apply bg-white;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-black;
 }
 
-input,
-textarea {
-  @apply bg-gray-700 outline-none rounded-lg p-3;
+body::-webkit-scrollbar {
+  width: 3px;
 }
-::placeholder {
-  @apply text-lg;
+body::-webkit-scrollbar-thumb {
+  background-color: #fff;
 }
-
-::selection {
-  @apply bg-cyan-600;
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: fit-content;
+  font-size: 40px;
+  font-family: system-ui,sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #0000;
+  -webkit-text-stroke: 1px #fff;
+  background: 
+    linear-gradient(-60deg,#0000 45%,#fff 0 55%,#0000 0) 
+    0/300% 100% no-repeat text;
+  animation: l3 2s linear infinite;
 }
-.wave {
-  background-image: url(./assets/images/wavebg.png);
+.loader:before {
+  content: "Muhammed Aslan";
+}
+@keyframes l3 {
+  0%{background-position: 100%}
 }
