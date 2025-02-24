@@ -1,3 +1,4 @@
+import { useLocation, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { baseUrl, db } from "./lib/db";
 import { Icon } from "./components/icons";
@@ -5,9 +6,18 @@ import { TypeAnimation } from "react-type-animation";
 import { cn } from './hooks/utils';
 
 const App = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const searchParams = new URLSearchParams(location.search);
+  const [lang, setLang] = useState(searchParams.get("lang") || "en");
   const [loading, setLoading] = useState(true);
   const [settings, setSettings] = useState(null);
-  const [lang, setLang] = useState("en");
+
+  const changeLanguage = (newLang) => {
+    setLang(newLang);
+    searchParams.set("lang", newLang);
+    navigate(`?${searchParams.toString()}`, { replace: true });
+  };
 
   useEffect(() => {
     const fetchRecord = async () => {
@@ -219,7 +229,7 @@ const App = () => {
             </div>
             <div className="flex flex-row gap-1">
               <button
-                onClick={() => setLang("en")}
+                onClick={() => changeLanguage("en")}
                 className={`px-4 py-2 rounded border ${lang === 'en'
                   ? 'bg-white text-black border-black'
                   : 'bg-black text-white'
@@ -228,7 +238,7 @@ const App = () => {
                 EN
               </button>
               <button
-                onClick={() => setLang("tr")}
+                onClick={() => changeLanguage("tr")}
                 className={`px-4 py-2 rounded border ${lang === 'tr'
                   ? 'bg-white text-black border-black'
                   : 'bg-black text-white'
