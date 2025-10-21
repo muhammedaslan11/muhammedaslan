@@ -3,7 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -33,14 +32,15 @@ body::-webkit-scrollbar-thumb {
 .loader {
   font-family: "Space Mono", monospace;
   -webkit-text-stroke: 1px #fff;
-  background: 
-    linear-gradient(-60deg,#0000 45%,#fff 0 55%,#0000 0) 
-    0/300% 100% no-repeat text;
+  background: linear-gradient(-60deg, #0000 45%, #fff 0 55%, #0000 0) 0/300%
+    100% no-repeat text;
   animation: l3 2s linear infinite;
 }
 .loader:before {
   content: "Muhammed Ali Aslan";
 }
 @keyframes l3 {
-  0%{background-position: 100%}
+  0% {
+    background-position: 100%;
+  }
 }

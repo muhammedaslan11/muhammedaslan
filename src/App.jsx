@@ -1,9 +1,11 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import content from "./data/content.json";
 import { Icon } from "./components/icons";
 import { cn } from "./hooks/utils";
 
 const tabOrder = ["overview", "education", "experience", "projects"];
+
+
 
 const Container = ({ children, className = "" }) => (
   <div className={cn("mx-auto w-full max-w-6xl px-4 md:px-8", className)}>{children}</div>
@@ -241,6 +243,20 @@ const TabContent = ({ activeTab, data }) => {
 const App = () => {
   const data = content;
   const [activeTab, setActiveTab] = useState("overview");
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const t = setTimeout(() => setLoading(false), 2000);
+    return () => clearTimeout(t);
+  }, []);
+
+  const Loader = () => (
+    <div className="flex h-screen items-center justify-center bg-black">
+      <div className="loader w-fit text-2xl md:text-[40px] font-bold uppercase text-[#0000]" />
+    </div>
+  );
+
+  if (loading) return <Loader />;
 
   return (
     <div className="flex h-screen flex-col bg-black text-white">
