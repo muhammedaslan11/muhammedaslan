@@ -61,35 +61,36 @@ const OverviewTab = ({ data }) => {
   const introText = useMemo(() => overview.description?.[0] ?? "", [overview.description]);
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(220px,0.95fr)] lg:items-center">
-      <div>
-        <p className="text-xs uppercase tracking-[0.35em] text-white/40">{data.translations.hello}</p>
-        <h1 className="mt-3 text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-[42px]">
-          {data.translations.iAm} <span className="text-white/80">{data.info.fullName}</span>
-        </h1>
-        <p className="mt-3 text-base font-semibold text-white/80 md:text-lg">{data.info.roleTitle}</p>
-        <p className="mt-4 text-base text-white/60 md:text-lg">{data.translations.slogan}</p>
-        {introText && (
-          <p className="mt-4 text-sm leading-relaxed text-white/65 md:text-base">{introText}</p>
-        )}
-        {overview.location && (
-          <p className="mt-4 text-xs uppercase tracking-[0.3em] text-white/40">{overview.location}</p>
-        )}
-        <SocialLinks links={data.socialLinks} />
-      </div>
-
-      <div className="relative flex justify-center">
-        <div className="w-full max-w-[400px] rounded-lg border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-transparent p-4 shadow-xl shadow-black/30">
-          <div className="relative overflow-hidden rounded-lg border border-white/20 bg-black">
-            <img
-              src="/medias/hero_image.png"
-              alt={data.info.fullName}
-              className="h-full w-full object-cover"
-            />
-          </div>
-        </div>
+   <div className="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(220px,0.95fr)] lg:items-center">
+  <div className="relative flex justify-center order-1 lg:order-2">
+    <div className="w-full max-w-[400px] rounded-lg border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-transparent p-4 shadow-xl shadow-black/30">
+      <div className="relative overflow-hidden rounded-lg border border-white/20 bg-black">
+        <img
+          src="/medias/hero_image.png"
+          alt={data.info.fullName}
+          className="h-full w-full object-cover"
+        />
       </div>
     </div>
+  </div>
+
+  <div className="order-2 lg:order-1">
+    <p className="text-xs uppercase tracking-[0.35em] text-white/40">{data.translations.hello}</p>
+    <h1 className="mt-3 text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-[42px]">
+      {data.translations.iAm} <span className="text-white/80">{data.info.fullName}</span>
+    </h1>
+    <p className="mt-3 text-base font-semibold text-white/80 md:text-lg">{data.info.roleTitle}</p>
+    <p className="mt-4 text-base text-white/60 md:text-lg">{data.translations.slogan}</p>
+    {introText && (
+      <p className="mt-4 text-sm leading-relaxed text-white/65 md:text-base">{introText}</p>
+    )}
+    {overview.location && (
+      <p className="mt-4 text-xs uppercase tracking-[0.3em] text-white/40">{overview.location}</p>
+    )}
+    <SocialLinks links={data.socialLinks} />
+  </div>
+</div>
+
   );
 };
 
@@ -200,7 +201,7 @@ const Footer = ({ data }) => (
 );
 
 const TabNavigation = ({ active, onSelect, translations }) => (
-  <div className="sticky top-0 z-30 border-b border-white/10 bg-black/85 backdrop-blur">
+  <div className="sticky top-0 z-30 border-b border-white/10 bg-black">
     <Container className="grid grid-cols-2 gap-2 py-3 sm:flex sm:flex-wrap sm:gap-3">
       {tabOrder.map((tab) => (
         <button
