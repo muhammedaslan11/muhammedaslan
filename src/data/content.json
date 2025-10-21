@@ -1,0 +1,132 @@
+{
+  "info": {
+    "name": "Muhammed Ali",
+    "surname": "Aslan",
+    "fullName": "Muhammed Ali Aslan",
+    "roleTitle": "Frontend & Mobile Developer",
+    "cvLink": "/medias/CV.pdf"
+  },
+  "alphaAslan": {
+    "name": "AlphaAslan",
+    "link": "http://www.alphaslan.com/"
+  },
+  "socialLinks": [
+    {
+      "name": "mail",
+      "link": "mailto:muhammedaaslan11@gmail.com",
+      "userName": "muhammedaaslan11@gmail.com",
+      "target": "_blank"
+    },
+    {
+      "name": "linkedin",
+      "link": "https://www.linkedin.com/in/muhammed-aslan11/",
+      "userName": "@muhammed-aslan11",
+      "target": "_blank"
+    },
+    {
+      "name": "github",
+      "link": "https://github.com/muhammedaslan11",
+      "userName": "@muhammedaslan11",
+      "target": "_blank"
+    },
+    {
+      "name": "instagram",
+      "link": "https://www.instagram.com/muhammedasln11",
+      "userName": "@muhammedasln11",
+      "target": "_blank"
+    },
+    {
+      "name": "x",
+      "link": "https://x.com/MuhammedAs1an",
+      "userName": "@MuhammedAs1an",
+      "target": "_blank"
+    },
+    {
+      "name": "youtube",
+      "link": "https://www.youtube.com/@muhammedaslan11",
+      "userName": "@muhammedaslan11",
+      "target": "_blank"
+    }
+  ],
+  "links": [
+    {
+      "label": "CV",
+      "href": "/medias/CV.pdf",
+      "target": "_blank"
+    },
+    {
+      "label": "Contact",
+      "href": "mailto:muhammedaaslan11@gmail.com"
+    }
+  ],
+  "translations": {
+    "hello": "Hello",
+    "iAm": "I'm",
+    "overview": "Overview",
+    "experience": "Experience",
+    "projects": "Projects",
+    "education": "Education",
+    "slogan": "Transforming ideas into impactful digital experiences across technology and media."
+  },
+  "tabs": {
+    "overview": {},
+    "experience": {
+      "items": [
+        {
+          "role": "Intern Frontend Developer",
+          "company": "Glomil Technology",
+          "period": "2022 — 2023",
+          "summary": "Participated in frontend development processes during internship, contributing to UI improvements and internal web tools."
+        },
+        {
+          "role": "Frontend Developer",
+          "company": "Glomil Technology",
+          "period": "2023 — Present",
+          "summary": "Working on modern web applications using new-generation technologies, contributing to municipal systems, R&D projects, and digital transformation solutions."
+        }
+      ]
+    },
+    "projects": {
+      "items": [
+        {
+          "title": "Project Title",
+          "description": "Project description goes here. Highlight key features and technologies used.",
+          "year": "2021",
+          "tags": [
+            "Astro.js",
+            "Framer Motion"
+          ],
+          "link": "http://www.muhammedaslan.net"
+        }
+      ]
+    },
+    "education": {
+      "items": [
+        {
+          "institution": "Burhan Primary School - Erzurum",
+          "program": "Primary Education",
+          "year": "2011 — 2014",
+          "details": "Completed primary education with a strong academic foundation."
+        },
+        {
+          "institution": "Karlıtepe Middle School - Istanbul",
+          "program": "Secondary Education",
+          "year": "2015 — 2019",
+          "details": "Developed an early interest in technology and computers."
+        },
+        {
+          "institution": "Plevne Anatolian High School - Istanbul",
+          "program": "High School Education",
+          "year": "2020 — 2023",
+          "details": "Focused on science and mathematics, building a pathway toward software development."
+        },
+        {
+          "institution": "Nişantaşı University - Istanbul",
+          "program": "Associate Degree in Computer Programming",
+          "year": "2024 — Present",
+          "details": "Continuing studies in software development, web technologies, and programming languages."
+        }
+      ]
+    }
+  }
+}

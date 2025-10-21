@@ -1,283 +1,260 @@
-import { useLocation, useNavigate } from "react-router-dom";
-import React, { useState, useEffect } from "react";
-import { baseUrl, db } from "./lib/db";
+import React, { useMemo, useState } from "react";
+import content from "./data/content.json";
 import { Icon } from "./components/icons";
-import { TypeAnimation } from "react-type-animation";
-import { cn } from './hooks/utils';
+import { cn } from "./hooks/utils";
 
-const App = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const searchParams = new URLSearchParams(location.search);
-  const [lang, setLang] = useState(searchParams.get("lang") || "en");
-  const [loading, setLoading] = useState(true);
-  const [settings, setSettings] = useState(null);
+const tabOrder = ["overview", "education", "experience", "projects"];
 
-  const changeLanguage = (newLang) => {
-    setLang(newLang);
-    searchParams.set("lang", newLang);
-    navigate(`?${searchParams.toString()}`, { replace: true });
-  };
+const Container = ({ children, className = "" }) => (
+  <div className={cn("mx-auto w-full max-w-6xl px-4 md:px-8", className)}>{children}</div>
+);
 
-  useEffect(() => {
-    const fetchRecord = async () => {
-      setLoading(true);
-      try {
-        db.autoCancellation(false);
-        const fetchedSettings = await db
-          .collection("Muhammed_Settings")
-          .getOne(lang === 'en' ? 'ziasqcr2c3k6fmt' : 'd9z6ux9m5jd1xeh');
-        setSettings(fetchedSettings);
-      } catch (error) {
-        console.error("Error fetching record:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    const timer = setTimeout(() => {
-      fetchRecord();
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, [lang]);
-
-  const Container = ({ children, className = "" }) => {
-    return (
-      <div className={`w-full h-auto mx-auto md:max-w-screen-2xl overflow-x-hidden ${className}`}>
-        {children}
-      </div>
-    );
-  };
-
-  const Header = ({ settings }) => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-    const toggleMenu = () => {
-      setIsMenuOpen((prev) => !prev);
-    };
-
-    useEffect(() => {
-      const overflowStyle = isMenuOpen ? "hidden" : "unset";
-      document.body.style.overflow = overflowStyle;
-
-      return () => {
-        document.body.style.overflow = "unset";
-      };
-    }, [isMenuOpen]);
-
-    return (
-      <Container>
-        <header className="px-4 h-auto py-3 sticky top-0 inset-x-0 w-full transition-all duration-300 bg-transparent border-b z-50">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <a href="/" className="flex items-center gap-2">
-                <picture>
-                  <img
-                    src={`${baseUrl}${settings?.values?.logo}`}
-                    alt={settings?.values?.logo}
-                    width={80}
-                    height={80}
-                  />
-                </picture>
-              </a>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="md:hidden">
-                <button
-                  onClick={toggleMenu}
-                  className="flex items-center p-2 focus:outline-none"
-                >
-                  <svg
-                    className="w-8 h-8"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    {isMenuOpen ? (
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    ) : (
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M4 6h16M4 12h16m-7 6h7"
-                      />
-                    )}
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <nav className="hidden md:flex">
-              <ul className="flex items-center space-x-8">
-                {settings?.values?.links?.map((menu, i) => (
-                  <li key={i}>
-                    <a
-                      target={menu.target || ""}
-                      href={menu.href}
-                      className="text-xl font-medium opacity-60 hover:opacity-100 transition-all"
-                    >
-                      /{menu.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </div>
-          <div
-            className={cn(
-              'menu-parent md:hidden text-gray-900 z-50 fixed w-full h-screen flex flex-col gap-10 px-7 py-2 font-medium duration-300 top-28 bg-black bg-opacity-50 backdrop-blur-md',
-              {
-                'left-0': isMenuOpen,
-                'left-[-100%]': !isMenuOpen,
-              }
-            )}
-          >
-            <div className="w-full mt-16 rounded-2xl text-center"></div>
-            <ul className="flex flex-col justify-center items-center gap-6 text-lg">
-              {settings?.values?.links?.map((menu, i) => (
-                <li key={i} className="hover:text-cyan-600 flex items-center gap-1">
-                  <a
-                    href={menu.href}
-                    className="font-bold text-white text-xl"
-                    target={menu.target || ""}
-                  >
-                    /{menu.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <p className="text-white text-center">
-              © {new Date().getFullYear()} {settings?.values?.info?.fullName} | Powered by{' '}
-              <strong>{settings?.values?.alphaAslan?.name}</strong>
-            </p>
-          </div>
-        </header>
-      </Container>
-    );
-  };
-
-  const Hero = ({ settings }) => {
-    return (
-      <Container className="p-11">
-        <div className="flex flex-col-reverse sm:flex-row gap-10">
-          <div className="flex-1 text-center sm:text-left">
-            <div className="text-white text-4xl sm:text-4xl lg:text-5xl font-extrabold leading-snug">
-              <span className="text-white">
-                {settings?.values?.translations?.hello}, {settings?.values?.translations?.ıam} {settings?.values?.info?.name}
-              </span>
-            </div>
-            <div className="text-2xl font-bold mt-4 text-gray-200">
-              <TypeAnimation
-                sequence={settings?.values?.animationTexts || [""]}
-                wrapper="span"
-                speed={50}
-                repeat={Infinity}
-              />
-            </div>
-            <p className="text-gray-400 text-base sm:text-lg mt-6">
-              {settings?.values?.translations?.slogan}
-            </p>
-            <div className="mt-8 flex flex-wrap justify-center sm:justify-start gap-4">
-              {settings?.values?.socialLinks?.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.link}
-                  target={social.target || ""}
-                  className="flex items-center justify-center sm:justify-start gap-2 px-4 py-2 border border-gray-600 rounded-lg bg-gray-800 hover:bg-gray-700 text-white transition-all duration-200 w-full max-w-xs"
-                >
-                  <Icon iconName={social.name} color="#fff" />
-                  <span className="text-sm font-medium">{social.userName}</span>
-                </a>
-              ))}
-            </div>
-          </div>
-
-          <div className="flex-1 flex justify-center">
-            <div className="rounded-md bg-gradient-to-r from-primary-500 via-secondary-500 to-secondary-700 w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative overflow-hidden">
-              <img
-                src={`${baseUrl}${settings?.values?.heroImage}`}
-                alt={`${settings?.values?.info?.fullName}`}
-                className="absolute inset-0 object-cover w-full h-full"
-              />
-            </div>
-          </div>
+const Header = ({ data }) => (
+  <header className="border-b border-white/10 bg-black/80">
+    <Container className="flex items-center justify-between py-4">
+      <div className="flex items-center gap-3">
+        <div className="flex flex-col leading-tight text-white">
+          <span className="text-lg font-semibold uppercase tracking-[0.25em] sm:text-xl">
+            {data.info.fullName}
+          </span>
         </div>
-      </Container>
-    );
-  };
+      </div>
+      <div className="flex items-center gap-2 sm:gap-3">
+        {data.links?.map((item) => (
+          <a
+            key={item.label}
+            href={item.href}
+            target={item.target || "_self"}
+            rel={item.target === "_blank" ? "noreferrer" : undefined}
+            className="rounded-lg border border-white/30 px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all hover:border-white/80 hover:bg-white/10 sm:px-4 sm:text-xs sm:tracking-[0.25em]"
+          >
+            {item.label}
+            <span aria-hidden>↗</span>
+          </a>
+        ))}
+      </div>
+    </Container>
+  </header>
+);
 
-  const Footer = ({ settings }) => {
-    return (
-      <Container>
-        <footer className="border-t py-8 px-3">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center">
-              <img
-                src={`${baseUrl}${settings?.values?.logo}`}
-                alt={settings?.values?.logo}
-                width={80}
-                height={80}
-                className="object-contain"
-              />
-            </div>
-            <div className="flex flex-row gap-1">
-              <button
-                onClick={() => changeLanguage("en")}
-                className={`px-4 py-2 rounded border ${lang === 'en'
-                  ? 'bg-white text-black border-black'
-                  : 'bg-black text-white'
-                  } transition-all`}
-              >
-                EN
-              </button>
-              <button
-                onClick={() => changeLanguage("tr")}
-                className={`px-4 py-2 rounded border ${lang === 'tr'
-                  ? 'bg-white text-black border-black'
-                  : 'bg-black text-white'
-                  } transition-all`}
-              >
-                TR
-              </button>
-            </div>
-          </div>
-          <p className="text-center text-gray-500 mt-4">
-            © {new Date().getFullYear()} {settings?.values?.info?.fullName} |
-            Powered by <a target="_blank" href={settings?.values?.alphaAslan?.link}>
-              <strong>{settings?.values?.alphaAslan?.name}</strong>
-            </a>
-          </p>
-        </footer>
-      </Container>
-    );
-  };
+const SocialLinks = ({ links }) => (
+  <div className="mt-6 flex flex-wrap gap-3">
+    {links.map((social) => (
+      <a
+        key={social.name}
+        href={social.link}
+        target={social.target || "_self"}
+        rel={social.target === "_blank" ? "noreferrer" : undefined}
+        className="group inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70 transition-all hover:border-white/30 hover:bg-white/10 hover:text-white"
+      >
+        <Icon iconName={social.name} size={18} color="currentColor" />
+        <span className="font-medium">{social.userName}</span>
+      </a>
+    ))}
+  </div>
+);
 
-  const Loader = () => {
-    return (
-      <Container className="flex justify-center items-center w-screen h-screen">
-        <div className="loader w-fit text-2xl md:text-[40px] font-bold uppercase text-[#0000]" />
-      </Container>
-    );
-  }
-
-  if (loading) {
-    return <Loader />;
-  }
-
+const OverviewTab = ({ data }) => {
+  const overview = data.tabs.overview;
+  const introText = useMemo(() => overview.description?.[0] ?? "", [overview.description]);
 
   return (
-    <Container>
-      <Header settings={settings} />
-      <Hero settings={settings} />
-      <Footer settings={settings} />
+    <div className="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(220px,0.95fr)] lg:items-center">
+      <div>
+        <p className="text-xs uppercase tracking-[0.35em] text-white/40">{data.translations.hello}</p>
+        <h1 className="mt-3 text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-[42px]">
+          {data.translations.iAm} <span className="text-white/80">{data.info.fullName}</span>
+        </h1>
+        <p className="mt-3 text-base font-semibold text-white/80 md:text-lg">{data.info.roleTitle}</p>
+        <p className="mt-4 text-base text-white/60 md:text-lg">{data.translations.slogan}</p>
+        {introText && (
+          <p className="mt-4 text-sm leading-relaxed text-white/65 md:text-base">{introText}</p>
+        )}
+        {overview.location && (
+          <p className="mt-4 text-xs uppercase tracking-[0.3em] text-white/40">{overview.location}</p>
+        )}
+        <SocialLinks links={data.socialLinks} />
+      </div>
+
+      <div className="relative flex justify-center">
+        <div className="w-full max-w-[400px] rounded-lg border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-transparent p-4 shadow-xl shadow-black/30">
+          <div className="relative overflow-hidden rounded-lg border border-white/20 bg-black">
+            <img
+              src="/medias/hero_image.png"
+              alt={data.info.fullName}
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const ExperienceTab = ({ data }) => (
+  <div className="space-y-5">
+    {data.items?.map((experience) => (
+      <article
+        key={`${experience.company}-${experience.period}`}
+        className="rounded-lg border border-white/10 bg-white/[0.06] p-5"
+      >
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h4 className="text-xl font-semibold text-white">{experience.role}</h4>
+            <p className="text-sm text-white/60">{experience.company}</p>
+          </div>
+          <span className="text-xs uppercase tracking-[0.3em] text-white/40">{experience.period}</span>
+        </div>
+        <p className="mt-4 text-sm leading-relaxed text-white/70 md:text-base">{experience.summary}</p>
+      </article>
+    ))}
+  </div>
+);
+
+const ProjectsTab = ({ data }) => (
+  <div className="grid gap-5">
+    {data.items?.map((project) => (
+      <article
+        key={project.title}
+        className="rounded-lg border border-white/10 bg-white/[0.06] p-5 transition-all hover:border-white/30 hover:bg-white/[0.09]"
+      >
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h3 className="text-2xl font-semibold text-white">{project.title}</h3>
+            <p className="text-sm leading-relaxed text-white/70 md:text-base">{project.description}</p>
+          </div>
+          <span className="text-xs uppercase tracking-[0.3em] text-white/40">{project.year}</span>
+        </div>
+
+        <div className="mt-4 flex flex-wrap gap-2">
+          {project.tags?.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-lg border border-white/10 bg-black/40 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white/60"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        {project.link && (
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-white transition-colors hover:text-white/80"
+          >
+            View project
+            <span aria-hidden>↗</span>
+          </a>
+        )}
+      </article>
+    ))}
+  </div>
+);
+
+const EducationTab = ({ data }) => (
+  <div className="space-y-6">
+    {data.items?.map((education) => (
+      <article
+        key={`${education.institution}-${education.year}`}
+        className="rounded-lg border border-white/10 bg-white/[0.06] p-5"
+      >
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h4 className="text-xl font-semibold text-white">{education.institution}</h4>
+            <p className="text-sm text-white/60">{education.program}</p>
+          </div>
+          <span className="text-xs uppercase tracking-[0.3em] text-white/40">{education.year}</span>
+        </div>
+        <p className="mt-4 text-sm leading-relaxed text-white/70 md:text-base">{education.details}</p>
+      </article>
+    ))}
+  </div>
+);
+
+const Footer = ({ data }) => (
+  <footer className="border-t border-white/10 bg-black/80 py-6 text-sm text-white/60">
+    <Container className="flex flex-col items-start justify-between gap-4 text-sm text-white/50 sm:flex-row sm:items-center">
+      <div className="flex flex-col leading-tight text-white">
+        <span className="text-base font-semibold uppercase tracking-[0.25em] sm:text-lg">
+          {data.info.fullName}
+        </span>
+        <span className="text-xs uppercase tracking-[0.3em] text-white/50">{data.info.roleTitle}</span>
+      </div>
+      <p>
+        © {new Date().getFullYear()} {data.info.fullName} · Powered by{" "}
+        <a
+          href={data.alphaAslan.link}
+          target="_blank"
+          rel="noreferrer"
+          className="font-semibold text-white transition-colors hover:text-white/80"
+        >
+          {data.alphaAslan.name}
+        </a>
+      </p>
     </Container>
+  </footer>
+);
+
+const TabNavigation = ({ active, onSelect, translations }) => (
+  <div className="sticky top-0 z-30 border-b border-white/10 bg-black/85 backdrop-blur">
+    <Container className="grid grid-cols-2 gap-2 py-3 sm:flex sm:flex-wrap sm:gap-3">
+      {tabOrder.map((tab) => (
+        <button
+          key={tab}
+          onClick={() => onSelect(tab)}
+          className={cn(
+            "rounded-lg border border-white/20 px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/70 transition-all sm:px-4 sm:text-xs sm:tracking-[0.25em]",
+            active === tab
+              ? "border-white bg-white text-black shadow-sm shadow-white/20"
+              : "hover:border-white/40 hover:text-white"
+          )}
+        >
+          {translations[tab]}
+        </button>
+      ))}
+    </Container>
+  </div>
+);
+
+const TabContent = ({ activeTab, data }) => {
+  const content = data.tabs[activeTab];
+
+  if (!content) {
+    return null;
+  }
+
+  switch (activeTab) {
+    case "experience":
+      return <ExperienceTab data={content} />;
+    case "projects":
+      return <ProjectsTab data={content} />;
+    case "education":
+      return <EducationTab data={content} />;
+    case "overview":
+    default:
+      return <OverviewTab data={data} />;
+  }
+};
+
+const App = () => {
+  const data = content;
+  const [activeTab, setActiveTab] = useState("overview");
+
+  return (
+    <div className="flex h-screen flex-col bg-black text-white">
+      <Header data={data} />
+      <main className="flex-1 overflow-y-auto bg-black">
+        <TabNavigation active={activeTab} onSelect={setActiveTab} translations={data.translations} />
+        <div className="pb-24 pt-6 sm:pb-16 sm:pt-8">
+          <Container>
+            <TabContent activeTab={activeTab} data={data} />
+          </Container>
+        </div>
+      </main>
+      <Footer data={data} />
+    </div>
   );
 };
 

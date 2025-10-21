@@ -5,6 +5,7 @@ import { FaTwitter } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { FiMail } from "react-icons/fi";
 
 const Icons = {
   linkedin: (props) => <FaLinkedin {...props} />,
@@ -13,7 +14,8 @@ const Icons = {
   twitter: (props) => <FaTwitter {...props} />,
   youtube: (props) => <FaYoutube {...props} />,
   github: (props) => <FaGithub {...props} />,
-  x: (props) => <FaXTwitter {...props} />
+  x: (props) => <FaXTwitter {...props} />,
+  mail: (props) => <FiMail {...props} />
 };
 
 export const Icon = ({ iconName, className = "", size = 24, color = "#000" }) => {

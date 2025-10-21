@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -19,7 +19,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Space Mono", monospace;
   @apply bg-black;
 }
 
@@ -31,7 +31,7 @@ body::-webkit-scrollbar-thumb {
 }
 /* HTML: <div class="loader"></div> */
 .loader {
-  font-family: system-ui,sans-serif;
+  font-family: "Space Mono", monospace;
   -webkit-text-stroke: 1px #fff;
   background: 
     linear-gradient(-60deg,#0000 45%,#fff 0 55%,#0000 0) 
@@ -39,7 +39,7 @@ body::-webkit-scrollbar-thumb {
   animation: l3 2s linear infinite;
 }
 .loader:before {
-  content: "Muhammed Aslan";
+  content: "Muhammed Ali Aslan";
 }
 @keyframes l3 {
   0%{background-position: 100%}
