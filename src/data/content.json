@@ -4,7 +4,7 @@
     "surname": "Aslan",
     "fullName": "Muhammed Ali Aslan",
     "roleTitle": "Software Developer",
-    "cvLink": "/medias/CV.pdf"
+    "cvLink": "/medias/Muhammed-Ali-Aslan.pdf"
   },
   "alphaAslan": {
     "name": "AlphaAslan",
@@ -51,7 +51,7 @@
   "links": [
     {
       "label": "CV",
-      "href": "/medias/CV.pdf",
+      "href": "/medias/Muhammed-Ali-Aslan.pdf",
       "target": "_blank"
     },
     {
