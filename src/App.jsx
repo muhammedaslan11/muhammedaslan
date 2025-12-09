@@ -236,8 +236,8 @@ const TabContent = ({ activeTab, data }) => {
   switch (activeTab) {
     case "experience":
       return <ExperienceTab data={content} />;
-    case "projects":
-      return <ProjectsTab data={content} />;
+    // case "projects":
+    //   return <ProjectsTab data={content} />;
     case "education":
       return <EducationTab data={content} />;
     case "overview":
