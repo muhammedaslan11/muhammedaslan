@@ -3,7 +3,12 @@ import content from "./data/content.json";
 import { Icon } from "./components/icons";
 import { cn } from "./hooks/utils";
 
-const tabOrder = ["overview", "education", "experience", "projects"];
+const tabOrder = [
+  "overview",
+  "education",
+  "experience",
+  // "projects"
+];
 
 
 
