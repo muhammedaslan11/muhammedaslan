@@ -3,56 +3,57 @@ import content from "./data/content.json";
 import { Icon } from "./components/icons";
 import { cn } from "./hooks/utils";
 
-const tabOrder = [
-  "overview",
-  "education",
-  "experience",
-  // "projects"
-];
-
-
-
 const Container = ({ children, className = "" }) => (
   <div className={cn("mx-auto w-full max-w-6xl px-4 md:px-8", className)}>{children}</div>
 );
 
-const Header = ({ data }) => (
-  <header className="border-b border-white/10 bg-black/80">
-    <Container className="flex items-center justify-between py-4">
-      <div className="flex items-center gap-3">
-        <div className="flex flex-col leading-tight text-white">
-          <span className="text-lg font-semibold uppercase tracking-[0.25em] sm:text-xl">
+const Masthead = ({ data, datestamp, time }) => (
+  <header className="border-b border-black/10 bg-white">
+    <Container className="py-6">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between">
+        <div className="space-y-1">
+          <h1 className="headline-serif text-3xl font-semibold leading-tight text-black sm:text-4xl">
             {data.info.fullName}
-          </span>
+          </h1>
+          <p className="text-lg font-medium text-black/70">{data.info.roleTitle}</p>
         </div>
-      </div>
-      <div className="flex items-center gap-2 sm:gap-3">
-        {data.links?.map((item) => (
-          <a
-            key={item.label}
-            href={item.href}
-            target={item.target || "_self"}
-            rel={item.target === "_blank" ? "noreferrer" : undefined}
-            className="rounded-lg border border-white/30 px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all hover:border-white/80 hover:bg-white/10 sm:px-4 sm:text-xs sm:tracking-[0.25em]"
-          >
-            {item.label}
-            <span aria-hidden>↗</span>
-          </a>
-        ))}
+        <div className="text-right text-xs uppercase tracking-[0.32em] text-black/60">
+          <span className="block">{datestamp}</span>
+          <span className="block text-black/50">{time}</span>
+        </div>
       </div>
     </Container>
   </header>
 );
 
+const Ticker = ({ phrases }) => (
+  <div className="overflow-hidden border-y border-black bg-black">
+    <div className="animate-marquee whitespace-nowrap py-3 text-[11px] uppercase tracking-[0.32em] text-white">
+      {phrases.map((text, index) => (
+        <span key={`${text}-${index}`} className="mx-6 inline-flex items-center gap-3">
+          <span className="h-px w-6 bg-white" />
+          {text}
+        </span>
+      ))}
+      {phrases.map((text, index) => (
+        <span key={`${text}-dup-${index}`} className="mx-6 inline-flex items-center gap-3">
+          <span className="h-px w-6 bg-white" />
+          {text}
+        </span>
+      ))}
+    </div>
+  </div>
+);
+
 const SocialLinks = ({ links }) => (
-  <div className="mt-6 flex flex-wrap gap-3">
+  <div className="mt-5 flex flex-wrap gap-3">
     {links.map((social) => (
       <a
         key={social.name}
         href={social.link}
         target={social.target || "_self"}
         rel={social.target === "_blank" ? "noreferrer" : undefined}
-        className="group inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70 transition-all hover:border-white/30 hover:bg-white/10 hover:text-white"
+        className="inline-flex items-center gap-2 text-sm font-medium text-black transition-colors hover:text-black/60"
       >
         <Icon iconName={social.name} size={18} color="currentColor" />
         <span className="font-medium">{social.userName}</span>
@@ -61,219 +62,222 @@ const SocialLinks = ({ links }) => (
   </div>
 );
 
-const OverviewTab = ({ data }) => {
-  const overview = data.tabs.overview;
-  const introText = useMemo(() => overview.description?.[0] ?? "", [overview.description]);
-
-  return (
-   <div className="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(220px,0.95fr)] lg:items-center">
-  <div className="relative flex justify-center order-1 lg:order-2">
-    <div className="w-full max-w-[400px] rounded-lg border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-transparent p-4 shadow-xl shadow-black/30">
-      <div className="relative overflow-hidden rounded-lg border border-white/20 bg-black">
-        <img
-          src="/medias/hero_image.png"
-          alt={data.info.fullName}
-          className="h-full w-full object-cover"
-        />
+const LeadFeature = ({ data, summary }) => (
+  <section className="border-b border-black/10 bg-white" id="feature">
+    <div className="grid gap-10 px-1 py-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+      <div className="space-y-4">
+        <p className="text-[11px] uppercase tracking-[0.35em] text-black/60">Featured Work</p>
+        <h2 className="headline-serif text-5xl font-semibold leading-[1] text-black sm:text-6xl md:text-7xl">
+          Design & Code
+        </h2>
+        <p className="text-base leading-relaxed text-black/70 sm:text-lg">{summary}</p>
+        <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.3em] text-black/70">
+          <span className="border border-black px-3 py-1">Software</span>
+          <span className="border border-black px-3 py-1">Media</span>
+          <span className="border border-black px-3 py-1">Digital Transformation</span>
+        </div>
+      </div>
+      <div className="relative">
+        <div className="border border-black/10 bg-black/5">
+          <img
+            src="/medias/hero_image.png"
+            alt={data.info.fullName}
+            className="h-full w-full object-cover lg:min-h-[420px]"
+          />
+        </div>
       </div>
     </div>
-  </div>
+  </section>
+);
 
-  <div className="order-2 lg:order-1">
-    <p className="text-xs uppercase tracking-[0.35em] text-white/40">{data.translations.hello}</p>
-    <h1 className="mt-3 text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-[42px]">
-      {data.translations.iAm} <span className="text-white/80">{data.info.fullName}</span>
-    </h1>
-    <p className="mt-3 text-base font-semibold text-white/80 md:text-lg">{data.info.roleTitle}</p>
-    <p className="mt-4 text-base text-white/60 md:text-lg">{data.translations.slogan}</p>
-    {introText && (
-      <p className="mt-4 text-sm leading-relaxed text-white/65 md:text-base">{introText}</p>
-    )}
-    {overview.location && (
-      <p className="mt-4 text-xs uppercase tracking-[0.3em] text-white/40">{overview.location}</p>
-    )}
+const ContactPanel = ({ data }) => (
+  <aside className="relative flex flex-col gap-4 border border-black/10 bg-white p-6" id="contact">
+    <div className="flex items-center justify-between">
+      <div>
+        <p className="text-[11px] uppercase tracking-[0.32em] text-black/60">Contact</p>
+        <h3 className="headline-serif text-2xl font-semibold text-black">Let&apos;s collaborate</h3>
+      </div>
+    </div>
+    <div className="space-y-3 text-sm text-black/80">
+      <div className="flex items-center justify-between border border-black/10 bg-white px-4 py-3">
+        <span className="uppercase tracking-[0.22em]">Email</span>
+        <a
+          href={`mailto:${data.socialLinks[0]?.userName || ""}`}
+          className="font-semibold text-black hover:text-black/70"
+        >
+          {data.socialLinks[0]?.userName}
+        </a>
+      </div>
+      <div className="flex items-center justify-between border border-black/10 bg-white px-4 py-3">
+        <span className="uppercase tracking-[0.22em]">LinkedIn</span>
+        <a
+          href={data.socialLinks.find((link) => link.name === "linkedin")?.link}
+          target="_blank"
+          rel="noreferrer"
+          className="font-semibold text-black hover:text-black/70"
+        >
+          {data.socialLinks.find((link) => link.name === "linkedin")?.userName}
+        </a>
+      </div>
+      <div className="flex items-center justify-between border border-black/10 bg-white px-4 py-3">
+        <span className="uppercase tracking-[0.22em]">CV</span>
+        <a
+          href={data.info.cvLink}
+          target="_blank"
+          rel="noreferrer"
+          className="font-semibold text-black hover:text-black/70"
+        >
+          Download ↗
+        </a>
+      </div>
+    </div>
     <SocialLinks links={data.socialLinks} />
-  </div>
-</div>
+  </aside>
+);
 
-  );
-};
-
-const ExperienceTab = ({ data }) => (
-  <div className="space-y-5">
-    {data.items?.map((experience) => (
-      <article
-        key={`${experience.company}-${experience.period}`}
-        className="rounded-lg border border-white/10 bg-white/[0.06] p-5"
-      >
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h4 className="text-xl font-semibold text-white">{experience.role}</h4>
-            <p className="text-sm text-white/60">{experience.company}</p>
-          </div>
-          <span className="text-xs uppercase tracking-[0.3em] text-white/40">{experience.period}</span>
-        </div>
-        <p className="mt-4 text-sm leading-relaxed text-white/70 md:text-base">{experience.summary}</p>
-      </article>
-    ))}
+const SectionTitle = ({ kicker, title, description }) => (
+  <div className="flex flex-col gap-2 border-b border-black/10 pb-4 sm:flex-row sm:items-end sm:justify-between">
+    <div>
+      <p className="text-[11px] uppercase tracking-[0.32em] text-black/60">{kicker}</p>
+      <h3 className="headline-serif text-2xl font-semibold text-black sm:text-3xl">{title}</h3>
+    </div>
+    {description ? <p className="max-w-xl text-sm text-black/60">{description}</p> : null}
   </div>
 );
 
-const ProjectsTab = ({ data }) => (
-  <div className="grid gap-5">
-    {data.items?.map((project) => (
-      <article
-        key={project.title}
-        className="rounded-lg border border-white/10 bg-white/[0.06] p-5 transition-all hover:border-white/30 hover:bg-white/[0.09]"
-      >
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h3 className="text-2xl font-semibold text-white">{project.title}</h3>
-            <p className="text-sm leading-relaxed text-white/70 md:text-base">{project.description}</p>
+const ExperienceSection = ({ data }) => (
+  <section className="border border-black/10 bg-white p-6 sm:p-8" id="experience">
+    <SectionTitle kicker="Experience" title="Latest Assignments" description="Selected roles shaping digital products, media, and civic technology." />
+    <div className="mt-6 grid gap-4 md:grid-cols-2">
+      {data.items?.map((experience, idx) => (
+        <article
+          key={`${experience.company}-${experience.period}`}
+          className="relative border border-black/10 bg-white p-5 transition-colors duration-200 hover:bg-[#f7f7f7]"
+        >
+          <div className="relative flex flex-col gap-2">
+            <div className="flex items-start justify-between">
+              <div className="space-y-1">
+                <p className="text-[11px] uppercase tracking-[0.32em] text-black/60">{experience.period}</p>
+                <h4 className="headline-serif text-xl font-semibold text-black">{experience.role}</h4>
+                <p className="text-sm text-black/60">{experience.company}</p>
+              </div>
+              <span className="border border-black/15 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-black/60">
+                {String(idx + 1).padStart(2, "0")}
+              </span>
+            </div>
+            <p className="text-sm leading-relaxed text-black/70">{experience.summary}</p>
           </div>
-          <span className="text-xs uppercase tracking-[0.3em] text-white/40">{project.year}</span>
-        </div>
+        </article>
+      ))}
+    </div>
+  </section>
+);
 
-        <div className="mt-4 flex flex-wrap gap-2">
-          {project.tags?.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-lg border border-white/10 bg-black/40 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white/60"
-            >
-              {tag}
+const EducationSection = ({ data }) => (
+  <section className="border border-black/10 bg-white p-6 sm:p-8" id="education">
+    <SectionTitle kicker="Education" title="Learning Trail" description="A path through schools and programs that sharpened craft and curiosity." />
+    <div className="mt-6 space-y-4">
+      {data.items?.map((education, idx) => (
+        <article
+          key={`${education.institution}-${education.year}`}
+          className="relative border border-black/10 bg-white p-5"
+        >
+          <div className="absolute left-3 top-3 h-2 w-2 bg-black/70" />
+          <div className="flex flex-wrap items-start justify-between gap-3 pl-4">
+            <div>
+              <p className="text-[11px] uppercase tracking-[0.32em] text-black/60">{education.year}</p>
+              <h4 className="headline-serif text-xl font-semibold text-black">{education.institution}</h4>
+              <p className="text-sm text-black/60">{education.program}</p>
+            </div>
+            <span className="border border-black/15 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-black/60">
+              {String(idx + 1).padStart(2, "0")}
             </span>
-          ))}
-        </div>
-
-        {project.link && (
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noreferrer"
-            className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-white transition-colors hover:text-white/80"
-          >
-            View project
-            <span aria-hidden>↗</span>
-          </a>
-        )}
-      </article>
-    ))}
-  </div>
-);
-
-const EducationTab = ({ data }) => (
-  <div className="space-y-6">
-    {data.items?.map((education) => (
-      <article
-        key={`${education.institution}-${education.year}`}
-        className="rounded-lg border border-white/10 bg-white/[0.06] p-5"
-      >
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h4 className="text-xl font-semibold text-white">{education.institution}</h4>
-            <p className="text-sm text-white/60">{education.program}</p>
           </div>
-          <span className="text-xs uppercase tracking-[0.3em] text-white/40">{education.year}</span>
-        </div>
-        <p className="mt-4 text-sm leading-relaxed text-white/70 md:text-base">{education.details}</p>
-      </article>
-    ))}
-  </div>
+          <p className="mt-3 text-sm leading-relaxed text-black/70">{education.details}</p>
+        </article>
+      ))}
+    </div>
+  </section>
 );
 
 const Footer = ({ data }) => (
-  <footer className="border-t border-white/10 bg-black/80 py-6 text-sm text-white/60">
-    <Container className="flex flex-col items-start justify-between gap-4 text-sm text-white/50 sm:flex-row sm:items-center">
-      <div className="flex flex-col leading-tight text-white">
-        <span className="text-base font-semibold uppercase tracking-[0.25em] sm:text-lg">
-          {data.info.fullName}
-        </span>
-        <span className="text-xs uppercase tracking-[0.3em] text-white/50">{data.info.roleTitle}</span>
+  <footer className="bg-black py-12 text-sm text-white">
+    <Container className="space-y-10">
+      <div className="grid gap-8 sm:grid-cols-[1.2fr_1fr_1fr]">
+        <div className="space-y-2">
+          <p className="text-xs uppercase tracking-[0.3em] text-white/60">{data.info.fullName}</p>
+          <p className="text-white/60">Building thoughtful interfaces and systems from Istanbul.</p>
+        </div>
+        <div className="space-y-2">
+          <p className="text-xs uppercase tracking-[0.3em] text-white/50">Sections</p>
+          <div className="flex flex-col gap-1 text-white/80">
+            <a href="#experience" className="hover:text-white/60">Work</a>
+            <a href="#education" className="hover:text-white/60">Education</a>
+            <a href="#contact" className="hover:text-white/60">Media</a>
+          </div>
+        </div>
+        <div className="space-y-2">
+          <p className="text-xs uppercase tracking-[0.3em] text-white/50">Contact</p>
+          <div className="flex flex-col gap-2 text-white/80">
+            <a href={`mailto:${data.socialLinks[0]?.userName || ""}`} className="hover:text-white/60">{data.socialLinks[0]?.userName}</a>
+            <a href={data.socialLinks.find((link) => link.name === "linkedin")?.link} target="_blank" rel="noreferrer" className="hover:text-white/60">LinkedIn</a>
+            <a href={data.info.cvLink} target="_blank" rel="noreferrer" className="hover:text-white/60">Download CV</a>
+          </div>
+        </div>
       </div>
-      <p>
-        © {new Date().getFullYear()} {data.info.fullName} · Powered by{" "}
-        <a
-          href={data.alphaAslan.link}
-          target="_blank"
-          rel="noreferrer"
-          className="font-semibold text-white transition-colors hover:text-white/80"
-        >
-          {data.alphaAslan.name}
-        </a>
-      </p>
+      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/10 pt-4 text-xs uppercase tracking-[0.25em] text-white/50">
+        <span>© {new Date().getFullYear()} {data.info.fullName}</span>
+        <span>Istanbul</span>
+        <span>Crafted with intent</span>
+      </div>
     </Container>
   </footer>
 );
 
-const TabNavigation = ({ active, onSelect, translations }) => (
-  <div className="sticky top-0 z-30 border-b border-white/10 bg-black">
-    <Container className="grid grid-cols-2 gap-2 py-3 sm:flex sm:flex-wrap sm:gap-3">
-      {tabOrder.map((tab) => (
-        <button
-          key={tab}
-          onClick={() => onSelect(tab)}
-          className={cn(
-            "rounded-lg border border-white/20 px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/70 transition-all sm:px-4 sm:text-xs sm:tracking-[0.25em]",
-            active === tab
-              ? "border-white bg-white text-black shadow-sm shadow-white/20"
-              : "hover:border-white/40 hover:text-white"
-          )}
-        >
-          {translations[tab]}
-        </button>
-      ))}
-    </Container>
-  </div>
-);
-
-const TabContent = ({ activeTab, data }) => {
-  const content = data.tabs[activeTab];
-
-  if (!content) {
-    return null;
-  }
-
-  switch (activeTab) {
-    case "experience":
-      return <ExperienceTab data={content} />;
-    // case "projects":
-    //   return <ProjectsTab data={content} />;
-    case "education":
-      return <EducationTab data={content} />;
-    case "overview":
-    default:
-      return <OverviewTab data={data} />;
-  }
-};
-
 const App = () => {
   const data = content;
-  const [activeTab, setActiveTab] = useState("overview");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const t = setTimeout(() => setLoading(false), 2000);
+    const t = setTimeout(() => setLoading(false), 1200);
     return () => clearTimeout(t);
   }, []);
 
+  const datestamp = useMemo(
+    () => new Intl.DateTimeFormat("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" }).format(new Date()),
+    []
+  );
+  const timeLabel = useMemo(
+    () => new Intl.DateTimeFormat("en-US", { hour: "2-digit", minute: "2-digit" }).format(new Date()),
+    []
+  );
+
   const Loader = () => (
-    <div className="flex h-screen items-center justify-center bg-black">
-      <div className="loader w-fit text-2xl md:text-[40px] font-bold uppercase text-[#0000]" />
+    <div className="flex h-screen items-center justify-center bg-white">
+      <div className="loader w-fit text-2xl font-bold uppercase text-[#0000] md:text-[40px]" />
     </div>
   );
 
   if (loading) return <Loader />;
 
+  const overview = data.tabs.overview || {};
+  const leadSummary = overview.description?.[0] ?? data.translations.slogan;
+
   return (
-    <div className="flex h-screen flex-col bg-black text-white">
-      <Header data={data} />
-      <main className="flex-1 overflow-y-auto bg-black">
-        <TabNavigation active={activeTab} onSelect={setActiveTab} translations={data.translations} />
-        <div className="pb-24 pt-6 sm:pb-16 sm:pt-8">
-          <Container>
-            <TabContent activeTab={activeTab} data={data} />
-          </Container>
-        </div>
+    <div className="relative min-h-screen bg-white text-black">
+      <Masthead data={data} datestamp={datestamp} time={timeLabel} />
+      <Ticker
+        phrases={[data.translations.slogan, data.info.roleTitle, "Istanbul", "Interfaces with character"]}
+      />
+      <main className="pb-16">
+        <Container className="space-y-10 pt-10 sm:space-y-14">
+          <div className="grid gap-8 lg:grid-cols-[1.35fr_0.65fr]">
+            <LeadFeature data={data} summary={leadSummary} />
+            <ContactPanel data={data} />
+          </div>
+          <ExperienceSection data={data.tabs.experience} />
+          <EducationSection data={data.tabs.education} />
+        </Container>
       </main>
       <Footer data={data} />
     </div>

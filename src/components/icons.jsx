@@ -29,7 +29,9 @@ export const Icon = ({ iconName, className = "", size = 24, color = "#000" }) =>
   return (
     <IconComponent
       className={className}
-      style={{ width: size, height: size, fill: color }}
+      style={{ width: size, height: size, color }}
+      color={color}
+      stroke={color}
     />
   );
 };

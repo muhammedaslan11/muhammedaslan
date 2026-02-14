@@ -1,38 +1,58 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:wght@500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground: #0b0b0b;
+  --ink: #0b0b0b;
+  --accent: #000000;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: "Space Mono", monospace;
-  @apply bg-black;
+  font-family: "Space Grotesk", "Space Mono", monospace;
+  letter-spacing: 0.01em;
+  @apply bg-white antialiased;
 }
 
 body::-webkit-scrollbar {
   width: 3px;
 }
 body::-webkit-scrollbar-thumb {
-  background-color: #fff;
+  background-color: #0b0b0b;
+}
+*::selection {
+  background: rgba(0, 0, 0, 0.12);
+  color: #000;
+}
+
+.headline-serif {
+  font-family: "Newsreader", "Times New Roman", serif;
+  letter-spacing: -0.01em;
+}
+
+.animate-marquee {
+  display: inline-block;
+  min-width: 100%;
+  animation: marquee 32s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 /* HTML: <div class="loader"></div> */
 .loader {
-  font-family: "Space Mono", monospace;
-  -webkit-text-stroke: 1px #fff;
-  background: linear-gradient(-60deg, #0000 45%, #fff 0 55%, #0000 0) 0/300%
+  font-family: "Space Grotesk", monospace;
+  -webkit-text-stroke: 1px #000;
+  background: linear-gradient(-60deg, #0000 45%, #000 0 55%, #0000 0) 0/300%
     100% no-repeat text;
   animation: l3 2s linear infinite;
 }
