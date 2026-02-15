@@ -78,7 +78,7 @@ const LeadFeature = ({ data, summary }) => (
     <div className="grid gap-10 px-1 py-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
       <div className="space-y-4">
         <p className="text-[11px] uppercase tracking-[0.35em] text-black/60">
-          Featured Work
+          Software & Media
         </p>
         <h2 className="headline-serif text-5xl font-semibold leading-[1] text-black sm:text-6xl md:text-7xl">
           Design & Code
@@ -256,6 +256,71 @@ const EducationSection = ({ data }) => (
   </section>
 );
 
+const ProjectsSection = ({ data }) => (
+  <section
+    className="border border-black/10 bg-white p-6 sm:p-8"
+    id="projects"
+  >
+    <SectionTitle
+      kicker="Projects"
+      title="Projects I'm Involved In"
+      description="Contributions to ministry-led and national-scale initiatives."
+    />
+    <div className="mt-6 grid gap-4 md:grid-cols-2">
+      {data.items?.map((project, idx) => (
+        <article
+          key={`${project.title}-${project.year}`}
+          className="relative border border-black/10 bg-white p-5 transition-colors duration-200 hover:bg-[#f7f7f7]"
+        >
+          <div className="flex items-start justify-between gap-3">
+            <div className="space-y-1">
+              <p className="text-[11px] uppercase tracking-[0.32em] text-black/60">
+                {project.year}
+              </p>
+              <h4 className="headline-serif text-xl font-semibold text-black">
+                {project.title}
+              </h4>
+              {project.ministry ? (
+                <p className="text-sm font-medium text-black/70">
+                  {project.ministry}
+                </p>
+              ) : null}
+            </div>
+            <span className="border border-black/15 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-black/60">
+              {String(idx + 1).padStart(2, "0")}
+            </span>
+          </div>
+          <p className="mt-3 text-sm leading-relaxed text-black/70">
+            {project.description}
+          </p>
+          <div className="mt-4 flex flex-wrap items-center gap-2">
+            {project.tags?.map((tag) => (
+              <span
+                key={tag}
+                className="border border-black/20 px-3 py-1 text-xs uppercase tracking-[0.22em] text-black/70"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+          {project.link ? (
+            <div className="mt-4 flex items-center justify-between text-sm font-semibold text-black">
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 hover:text-black/70"
+              >
+                Projeyi Gör ↗
+              </a>
+            </div>
+          ) : null}
+        </article>
+      ))}
+    </div>
+  </section>
+);
+
 const Footer = ({ data }) => (
   <footer className="bg-black py-12 text-sm text-white">
     <Container className="space-y-10">
@@ -388,6 +453,7 @@ const App = () => {
             <ContactPanel data={data} />
           </div>
           <ExperienceSection data={data.tabs.experience} />
+          <ProjectsSection data={data.tabs.projects} />
           <EducationSection data={data.tabs.education} />
         </Container>
       </main>

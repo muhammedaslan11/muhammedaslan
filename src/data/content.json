@@ -66,37 +66,81 @@
     "experience": "Experience",
     "projects": "Projects",
     "education": "Education",
-    "slogan": "Transforming ideas into impactful digital experiences across technology and media."
+    "slogan": "Delivering user-friendly, responsive digital experiences that align user needs with business objectives."
   },
   "tabs": {
-    "overview": {},
+    "overview": {
+      "description": [
+        "Junior Frontend Developer with 2.5 years at Glomli Technology, creating user-friendly and visually engaging web experiences.",
+        "Hands-on with HTML, CSS, JavaScript, TypeScript, React, Next.js, Bootstrap, and TailwindCSS, focused on clean, maintainable, and responsive interfaces.",
+        "Adaptable teammate with a solution-oriented mindset, delivering digital products that balance user needs and business goals."
+      ]
+    },
     "experience": {
       "items": [
         {
-          "role": "Intern Frontend Developer",
-          "company": "Glomil Technology",
-          "period": "2022 — 2023",
-          "summary": "Participated in frontend development processes during internship, contributing to UI improvements and internal web tools."
+          "role": "Frontend Developer",
+          "company": "Glomli Technology — Sarıyer, Istanbul",
+          "period": "2023 — Present",
+          "summary": "Lead and build modern web experiences for national-scale initiatives (GoTürkiye, Culture Route Festival, AKM, Health Türkiye), delivering responsive UIs, email templates, and content workflows with React, Next.js, TypeScript, Bootstrap, and TailwindCSS."
         },
         {
-          "role": "Frontend Developer",
-          "company": "Glomil Technology",
-          "period": "2023 — Present",
-          "summary": "Working on modern web applications using new-generation technologies, contributing to municipal systems, R&D projects, and digital transformation solutions."
+          "role": "Frontend Developer Intern",
+          "company": "Glomli Technology",
+          "period": "2022 — 2023",
+          "summary": "Supported software and content development, contributing to UI improvements and internal tools while learning modern frontend practices and collaborative workflows."
         }
       ]
     },
     "projects": {
       "items": [
         {
-          "title": "Project Title",
-          "description": "Project description goes here. Highlight key features and technologies used.",
-          "year": "2021",
+          "title": "GoTürkiye — Official Travel Guide",
+          "description": "Developed email templates and content workflows for Türkiye's official tourism platform under the Ministry of Culture and Tourism.",
+          "year": "2024",
+          "ministry": "Ministry of Culture and Tourism",
           "tags": [
-            "Astro.js",
-            "Framer Motion"
+            "Email Templates",
+            "Content Ops",
+            "Responsive UI"
           ],
-          "link": "http://www.muhammedaslan.net"
+          "link": "https://www.goturkiye.com/"
+        },
+        {
+          "title": "Culture Route Festival 2024",
+          "description": "Built web-based software and email systems to enhance event communication for national festivals, partnered with the Ministry of Culture and Tourism.",
+          "year": "2024",
+          "ministry": "Ministry of Culture and Tourism",
+          "tags": [
+            "Next.js",
+            "Email Systems",
+            "Content Delivery"
+          ],
+          "link": "https://kulturyolufestivali.com/"
+        },
+        {
+          "title": "Atatürk Cultural Center (AKM)",
+          "description": "Created digital content and email templates to elevate the cultural center's online presence in collaboration with the Ministry of Culture and Tourism.",
+          "year": "2023",
+          "ministry": "Ministry of Culture and Tourism",
+          "tags": [
+            "React",
+            "Content Development",
+            "Accessibility"
+          ],
+          "link": "https://akmistanbul.gov.tr/"
+        },
+        {
+          "title": "Health Türkiye",
+          "description": "Contributed to software and content development to strengthen global visibility and user experience for the platform under the Ministry of Health.",
+          "year": "2023",
+          "ministry": "Ministry of Health",
+          "tags": [
+            "Responsive UI",
+            "Localization",
+            "Performance"
+          ],
+          "link": "https://www.healthturkiye.com/"
         }
       ]
     },
