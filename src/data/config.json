@@ -1,0 +1,193 @@
+{
+  "info": {
+    "name": "Muhammed Ali",
+    "surname": "Aslan",
+    "roleTitle": "Software & Media"
+  },
+  "socialLinks": [
+    {
+      "name": "mail",
+      "link": "mailto:muhammedaslanwork@gmail.com",
+      "userName": "muhammedaslanwork@gmail.com",
+      "target": "_blank"
+    },
+    {
+      "name": "linkedin",
+      "link": "https://www.linkedin.com/in/muhammedaaslan/",
+      "userName": "@muhammedaaslan",
+      "target": "_blank"
+    },
+    {
+      "name": "github",
+      "link": "https://github.com/muhammedaslan11",
+      "userName": "@muhammedaslan11",
+      "target": "_blank"
+    },
+    {
+      "name": "instagram",
+      "link": "https://www.instagram.com/muhammedaali",
+      "userName": "@muhammedaali",
+      "target": "_blank"
+    }
+  ],
+  "links": [
+    {
+      "label": "English Cert.",
+      "href": "/medias/english-certificate.pdf",
+      "target": "_blank"
+    },
+    {
+      "label": "CV",
+      "href": "/medias/muhammed-ali-aslan.pdf",
+      "target": "_blank"
+    },
+    {
+      "label": "Contact",
+      "href": "mailto:muhammedaslanwork@gmail.com"
+    }
+  ],
+  "overview": [
+    "Frontend Developer with 3.5 years of experience at Glomli Technology, creating user-friendly, visually engaging, and performance-focused web experiences.",
+    "Hands-on with HTML, CSS, JavaScript, TypeScript, React, Next.js, Bootstrap, and TailwindCSS, focused on building clean, maintainable, and responsive interfaces.",
+    "Experienced not only in frontend development but also in media and digital content production, with a strong eye for visual design, branding, and content presentation.",
+    "Adaptable teammate with a solution-oriented mindset, delivering digital products that balance user needs, visual quality, and business goals."
+  ],
+  "experience": [
+    {
+      "role": "Frontend Developer",
+      "company": "Glomli Technology — Sarıyer, Istanbul",
+      "period": "2023 — Present",
+      "logo": "/medias/glomil.png",
+      "summary": "Lead and build modern web experiences for national-scale initiatives (GoTürkiye, Culture Route Festival, AKM, Health Türkiye), delivering responsive UIs, email templates, and content workflows with React, Next.js, TypeScript, Bootstrap, and TailwindCSS.",
+      "link": "https://www.glomil.com"
+    },
+    {
+      "role": "Frontend Developer Intern",
+      "company": "Glomli Technology",
+      "period": "2022 — 2023",
+      "logo": "/medias/glomil.png",
+      "summary": "Supported software and content development, contributing to UI improvements and internal tools while learning modern frontend practices and collaborative workflows.",
+      "link": "https://www.glomil.com"
+    }
+  ],
+  "collaboratedProjects": [
+    {
+      "title": "GoTürkiye — Official Travel Guide",
+      "description": "Developed email templates and content workflows for Türkiye's official tourism platform under the Ministry of Culture and Tourism.",
+      "year": "2024",
+      "subtitle": "Ministry of Culture and Tourism - Glomil",
+      "logo": "/medias/goturkiye.svg",
+      "tags": [
+        "Email Templates",
+        "Content Ops",
+        "Responsive UI"
+      ],
+      "link": "https://www.goturkiye.com"
+    },
+    {
+      "title": "Culture Route Festival 2024",
+      "description": "Built web-based software and email systems to enhance event communication for national festivals, partnered with the Ministry of Culture and Tourism.",
+      "year": "2024",
+      "subtitle": "Ministry of Culture and Tourism - Glomil",
+      "logo": "/medias/kyf.png",
+      "tags": [
+        "Next.js",
+        "Email Systems",
+        "Content Delivery"
+      ],
+      "link": "https://kulturyolufestivali.com"
+    },
+    {
+      "title": "Atatürk Cultural Center (AKM)",
+      "description": "Created digital content and email templates to elevate the cultural center's online presence in collaboration with the Ministry of Culture and Tourism.",
+      "year": "2023",
+      "subtitle": "Ministry of Culture and Tourism - Glomil",
+      "logo": "/medias/akm.svg",
+      "tags": [
+        "React",
+        "Content Development",
+        "Accessibility"
+      ],
+      "link": "https://akmistanbul.gov.tr"
+    },
+    {
+      "title": "Health Türkiye",
+      "description": "Contributed to software and content development to strengthen global visibility and user experience for the platform under the Ministry of Health.",
+      "year": "2023",
+      "subtitle": "Ministry of Health - Glomil",
+      "logo": "/medias/health-turkiye.svg",
+      "tags": [
+        "Responsive UI",
+        "Localization",
+        "Performance"
+      ],
+      "link": "https://www.healthturkiye.com"
+    }
+  ],
+  "works": [
+    {
+      "title": "ROJDA",
+      "description": "End-to-end media and software partnership — managing social media presence, content production, brand strategy, and platform development for a growing lifestyle brand.",
+      "year": "2026",
+      "subtitle": "Media & Software",
+      "logo": "/medias/rojda.webp",
+      "tags": [
+        "Instagram",
+        "Content Strategy",
+        "Branding",
+        "Software Development"
+      ],
+      "link": "https://www.rojda.info"
+    },
+    {
+      "title": "Kazemler",
+      "description": "End-to-end media and software partnership — managing social media presence, content production, brand strategy, and platform development for a growing lifestyle brand.",
+      "year": "2025",
+      "subtitle": "Media & Software",
+      "logo": "/medias/kazemler.png",
+      "tags": [
+        "Content Strategy",
+        "Software Development"
+      ],
+      "link": "https://www.kazemler.com"
+    },
+    {
+      "title": "Barcode Cosmetics",
+      "description": "End-to-end media and software partnership — managing social media presence, content production, brand strategy, and platform development for a growing lifestyle brand.",
+      "year": "2026",
+      "subtitle": "Media & Software",
+      "logo": "/medias/barcode.png",
+      "tags": [
+        "Software Development"
+      ],
+      "link": "https://www.barcodecosmetics.com"
+    }
+  ],
+  "education": [
+    {
+      "institution": "Nişantaşı University - Istanbul",
+      "program": "Associate Degree in Computer Programming",
+      "year": "2024 — Present",
+      "details": "Continuing studies in software development, web technologies, and programming languages."
+    },
+    {
+      "institution": "Plevne Anatolian High School - Istanbul",
+      "program": "High School Education",
+      "year": "2020 — 2023",
+      "details": "Focused on science and mathematics, building a pathway toward software development."
+    },
+    {
+      "institution": "Karlıtepe Middle School - Istanbul",
+      "program": "Secondary Education",
+      "year": "2015 — 2019",
+      "details": "Developed an early interest in technology and computers."
+    },
+    {
+      "institution": "Burhan Primary School - Erzurum",
+      "program": "Primary Education",
+      "year": "2011 — 2014",
+      "details": "Completed primary education with a strong academic foundation."
+    }
+  ],
+  "references": []
+}
