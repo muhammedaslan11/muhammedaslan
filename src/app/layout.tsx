@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Cinzel_Decorative } from "next/font/google";
 import Script from "next/script";
+import { WebVitals } from "@/components/web-vitals";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -129,6 +130,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${cinzelDecorative.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <WebVitals />
         {children}
         <script
           type="application/ld+json"
