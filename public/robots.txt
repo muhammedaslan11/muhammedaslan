@@ -3,5 +3,5 @@ Allow: /
 Disallow: /api/
 Disallow: /_next/
 
-Sitemap: https://muhammedaslan.dev/sitemap.xml
-Host: https://muhammedaslan.dev
+Sitemap: https://muhammedaslan.net/sitemap.xml
+Host: https://muhammedaslan.net

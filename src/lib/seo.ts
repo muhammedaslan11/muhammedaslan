@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const BASE_URL = "https://muhammedaslan.dev";
+const BASE_URL = "https://muhammedaslan.net";
 const DEFAULT_OG_IMAGE = "/medias/muhammed-ali-aslan.png";
 
 interface PageSEOProps {

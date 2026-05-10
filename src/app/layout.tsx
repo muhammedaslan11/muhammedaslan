@@ -20,7 +20,7 @@ const cinzelDecorative = Cinzel_Decorative({
   weight: ["400", "700", "900"],
 });
 
-const BASE_URL = "https://muhammedaslan.dev";
+const BASE_URL = "https://muhammedaslan.net";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
